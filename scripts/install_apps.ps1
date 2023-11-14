@@ -17,7 +17,7 @@ choco install "winget" "dotnet-all" "vcredist-all" "eartrumpet" "traffic-monitor
 winget update --all -h --disable-interactivity ## --silent | -h
 
 ### Install apps (winget)		# --source | -s (winget,msstore)
-winget install "git" "github cli" "github desktop" "lazygit" "nodejs" "terminal" "powershell" "powertoys" "traffic monitor" "caprine" "discord" "telegram" "k-lite mega codec pack" "obs studio" "VLC media player" "winrar" "anydesk" "gpu-z" "f.lux" "afterburner" "nvcleanstall" "superf4" "wingetUI" "oracle.JDK.18" "7-zip" "Alex313031.Thorium" --id "cpuidcpu-z.taichi" -s winget --accept-package-agreements --accept-source-agreements -h
+winget install "git" "github cli" "github desktop" "lazygit" "nodejs" "terminal" "powershell" "powertoys" "traffic monitor" "nilesoft shell" "caprine" "discord" "telegram" "k-lite mega codec pack" "obs studio" "VLC media player" "winrar" "anydesk" "gpu-z" "f.lux" "afterburner" "nvcleanstall" "superf4" "wingetUI" "oracle.JDK.18" "7-zip" "Alex313031.Thorium" --id "cpuidcpu-z.taichi" -s winget --accept-package-agreements --accept-source-agreements -h
 
 choco cache remove -y # clear chocolatey cache
 
