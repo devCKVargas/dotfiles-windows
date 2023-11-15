@@ -32,6 +32,9 @@
 - caprine (Messenger)
 - discord
 - telegram
+- megasync
+- Free Download Manager
+- AutoHotKey
 - k-lite mega codec pack
 - obs studio
 - VLC media player
