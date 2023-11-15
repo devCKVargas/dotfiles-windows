@@ -11,13 +11,13 @@
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 ### Install apps (chocolatey)
-choco install "winget" "dotnet-all" "vcredist-all" "eartrumpet" "traffic-monitor" "nerd-fonts-jetbrainsMono" "nerd-fonts-arimo" "nerd-fonts-meslo" "sdio" -y
+choco install "winget" "dotnet-all" "vcredist-all" "eartrumpet" "traffic-monitor" "nerd-fonts-jetbrainsMono" "nerd-fonts-arimo" "nerd-fonts-meslo" -y
 
 ### Update current apps (winget)
 winget update --all -h --disable-interactivity ## --silent | -h
 
 ### Install apps (winget)		# --source | -s (winget,msstore)
-winget install "git" "github cli" "github desktop" "lazygit" "nodejs" "terminal" "powershell" "powertoys" "traffic monitor" "nilesoft shell" "caprine" "discord" "telegram" "k-lite mega codec pack" "obs studio" "VLC media player" "winrar" "anydesk" "gpu-z" "f.lux" "afterburner" "nvcleanstall" "superf4" "wingetUI" "oracle.JDK.18" "7-zip" "Alex313031.Thorium" --id "cpuidcpu-z.taichi" -s winget --accept-package-agreements --accept-source-agreements -h
+winget install "git" "github cli" "github desktop" "lazygit" "nodejs" "terminal" "powershell" "powertoys" "traffic monitor" "nilesoft shell" "caprine" "discord" "telegram" "megasync" "fdm" "ahk" "k-lite mega codec pack" "obs studio" "VLC media player" "winrar" "anydesk" "gpu-z" "f.lux" "afterburner" "nvcleanstall" "superf4" "wingetUI" "oracle.JDK.18" "7-zip" "Alex313031.Thorium" --id "cpuidcpu-z.taichi" -s winget --accept-package-agreements --accept-source-agreements -h
 
 choco cache remove -y # clear chocolatey cache
 
@@ -31,20 +31,21 @@ choco cache remove -y # clear chocolatey cache
 # "nerd-fonts-jetbrainsMono" (font) 
 # "nerd-fonts-arimo" (font)
 # "nerd-fonts-meslo" (font)
-## > "realtek-hd-audio-driver" failed
-# "sdio" (snappy driver installer origin)
 ### Winget pkgs
 # "git"
 # "github clig"
 # "github desktop"
 # "nodejs"
 # "terminal"
-# "powershell"
+# "powershell" (powershell7)
 # "powertoys"
 # "traffic monitor"
 # "caprine" (Messenger)
 # "discord"
 # "telegram"
+# "megasync"
+# "fdm" (free download manager)
+# "ahk" (AutoHotKey)
 # "k-lite mega codec pack"
 # "obs studio"
 # "VLC media player"
