@@ -5,48 +5,75 @@
 - **Internet connection**
 - **Admin rights**
 
-### App list
+## Package list
 
-## Chocolatey pkgs
-
-- wwinget-cli
-- .NET runtimes
-- Visual C++ runtimes
-- eartrumpet (Volume Control)
-- traffic-monitor (Network Speed monitor)
-- nerd-fonts-jetbrainsMono (font)
-- nerd-fonts-arimo (font)
-- nerd-fonts-meslo (font)
-- > snappy driver installer origin (BUGGED)
-
-## - Winget pkgs
-
-- git
-- github clig
-- github desktop
-- nodejs
-- terminal
-- powershell
-- powertoys
-- traffic monitor
-- caprine (Messenger)
-- discord
-- telegram
-- megasync
-- Free Download Manager
-- AutoHotKey
-- k-lite mega codec pack
-- obs studio
-- VLC media player
-- winrar
-- anydesk
-- gpu-z
-- f.lux
-- afterburner
-- nvcleanstall
-- superf4
-- wingetUI
-- Java JDK 18
-- 7-zip
-- Thorium Browser
-- CPU-Z version Taichi
+<table>
+ <td>
+  <code>Chocolatey</code>
+ </td>
+ <td>
+  <table>
+  <tr><td>Winget-CLI</td></tr>
+  <tr><td>.NET Runtimes</td></tr>
+  <tr><td>Visual C++ Runtimes</td></tr>
+  <tr><td>Eartrumpet (Volume Control)</td></tr>
+  <tr><td>Traffic-Monitor (Network Speed monitor)</td></tr>
+  <tr><td>====== <code>FONTS</code> ======</td></tr>
+  <tr><td>nerd-fonts-JetBrainsMono (font)</td></tr>
+  <tr><td>nerd-fonts-Arimo (font)</td></tr>
+  <tr><td>nerd-fonts-Meslo (font)</td></tr>
+  </table>
+ </td>
+</table>
+<br>
+<table>
+ <tr style="text-align: center;">
+  <td>
+  <code>Winget(dev apps)</code>
+  </td>
+ <td>
+   <code>Winget(apps)</code>
+ </td>
+ </tr>
+ <td>
+  <table>
+  <tr><td>Git</td></tr>
+  <tr><td>Github CLI</td></tr>
+  <tr><td>Github Desktop</td></tr>
+  <tr><td>NodeJS</td></tr>
+  <tr><td>Terminal</td></tr>
+  <tr><td>Powershell</td></tr>
+  <tr><td>Java (JDK18)</td></tr>
+  <tr><td>VSCode</td></tr>
+  <tr><td>Figma</td></tr>
+  <tr><td>ImageMagick</td></tr>
+  <tr><td>Responsively App</td></tr>
+ </table>
+ <td>
+ <table>
+ <tr><td>7-zip</td></tr>
+ <tr><td>Afterburner</td></tr>
+ <tr><td>Anydesk</td></tr>
+ <tr><td>AutoHotKey</td></tr>
+ <tr><td>Caprine (Messenger)</td></tr>
+ <tr><td>Canva</td></tr>
+ <tr><td>CPU-Z version Taichi</td></tr>
+ <tr><td>Discord</td></tr>
+ <tr><td>f.lux</td></tr>
+ <tr><td>Free Download Manager</td></tr>
+ <tr><td>GPU-Z</td></tr>
+ <tr><td>K-lite mega codec pack</td></tr>
+ <tr><td>Megasync</td></tr>
+ <tr><td>NVCleanstall</td></tr>
+ <tr><td>OBS Studio</td></tr>
+ <tr><td>Powertoys</td></tr>
+ <tr><td>SuperF4</td></tr>
+ <tr><td>Telegram</td></tr>
+ <tr><td>Thorium Browser</td></tr>
+ <tr><td>VLC media player</td></tr>
+ <tr><td>Winrar</td></tr>
+ <tr><td>WingetUI</td></tr>
+ </td>
+  </table>
+ </td>
+</table>
