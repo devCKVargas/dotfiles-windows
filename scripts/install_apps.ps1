@@ -13,7 +13,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 # █▀▀ █░█ █▀█ █▀▀ █▀█
 # █▄▄ █▀█ █▄█ █▄▄ █▄█
-choco install "winget" "dotnet-all" "vcredist-all" "eartrumpet" "traffic-monitor" "nerd-fonts-jetbrainsMono" "nerd-fonts-arimo" "nerd-fonts-meslo" -y
+choco install "winget" "eartrumpet" "traffic-monitor" "nerd-fonts-jetbrainsMono" "nerd-fonts-arimo" "nerd-fonts-meslo" "dotnet-all" "vcredist-all" "winfetch" "openal" -y
 choco cache remove -y # clear chocolatey cache
 
 
