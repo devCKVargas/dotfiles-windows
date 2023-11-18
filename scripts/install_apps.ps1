@@ -3,9 +3,9 @@
 
 # █░█░█ █ █▄░█ █▀▀ █▀▀ ▀█▀   █▀▀ █ ▀▄▀ # Winget (FIX! Slow Download)
 # ▀▄▀▄▀ █ █░▀█ █▄█ ██▄ ░█░   █▀░ █ █░█ # `winget settings`
-# "network": {
-#    "downloader": "wininet" // or "do" when (delivery optimization is enabled)
-# }
+#"network": {
+#   "downloader": "wininet" // or "do" when (delivery optimization is enabled)
+#},
 
 # █▀▀ █░█ █▀█ █▀▀ █▀█ █░░ ▄▀█ ▀█▀ █▀▀ █▄█
 # █▄▄ █▀█ █▄█ █▄▄ █▄█ █▄▄ █▀█ ░█░ ██▄ ░█░
@@ -16,14 +16,13 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 choco install "winget" "eartrumpet" "traffic-monitor" "nerd-fonts-jetbrainsMono" "nerd-fonts-arimo" "nerd-fonts-meslo" "dotnet-all" "vcredist-all" "winfetch" "openal" -y
 choco cache remove -y # clear chocolatey cache
 
-
 # █░█░█ █ █▄░█ █▀▀ █▀▀ ▀█▀
 # ▀▄▀▄▀ █ █░▀█ █▄█ ██▄ ░█░ # Update current apps
 winget update --all -h --disable-interactivity ## --silent | -h
 
 # █▀▄ █▀▀ █░█
 # █▄▀ ██▄ ▀▄▀ # --source | -s (winget,msstore)
-winget install "git" "github cli" "github desktop" "lazygit" "nodejs" "terminal" "powershell" "Microsoft Visual Studio Code" "figma" "imagemagick" "ResponsivelyApp"
+winget install "git" "github cli" "github desktop" "lazygit" "nodejs" "terminal" "powershell" "Microsoft Visual Studio Code" "figma" "imagemagick" "ResponsivelyApp" -s winget --accept-package-agreements --accept-source-agreements -h
 
 # ▄▀█ █▀█ █▀█ █▀
 # █▀█ █▀▀ █▀▀ ▄█
