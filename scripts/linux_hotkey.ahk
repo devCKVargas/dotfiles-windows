@@ -1,6 +1,7 @@
 ﻿#Requires AutoHotkey v2.0
 
 ; Variables
+terminal := "pwsh -wd ~\"
 browser := "msedge"
 editor := "code"
 
@@ -8,3 +9,5 @@ editor := "code"
 #q::Send "!{F4}" ; Simulate Alt + F4
 #b::Run browser
 #c::Run editor
+#enter:: Run terminal
+#NumpadEnter:: Run terminal
