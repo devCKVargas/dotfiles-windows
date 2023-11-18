@@ -26,4 +26,4 @@ winget install "git" "github cli" "github desktop" "lazygit" "nodejs" "terminal"
 
 # ▄▀█ █▀█ █▀█ █▀
 # █▀█ █▀▀ █▀▀ ▄█
-winget install "nvcleanstall"  "powertoys" "nilesoft shell" "caprine" "discord" "telegram" "megasync" "fdm" "canva" "ahk" "k-lite mega codec pack" "obs studio" "VLC media player" "winrar" "anydesk" "gpu-z" "f.lux" "afterburner" "superf4" "wingetUI" "oracle.JDK.18" "7-zip" "Alex313031.Thorium" --id "cpuidcpu-z.taichi" -s winget --accept-package-agreements --accept-source-agreements -h
+winget install "nvcleanstall"  "powertoys" "nilesoft shell" "caprine" "discord" "telegram" "megasync" "fdm" "canva" "ahk" "k-lite mega codec pack" "obs studio" "VLC media player" "winrar" "anydesk" "gpu-z" "f.lux" "afterburner" "superf4" "wingetUI" "oracle.JDK.18" "7-zip" "Alex313031.Thorium" "Microsoft XNA Framework Redistributable Refresh" "CPUID CPU-Z" -s winget --accept-package-agreements --accept-source-agreements -h
