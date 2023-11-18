@@ -22,8 +22,8 @@ winget update --all -h --disable-interactivity ## --silent | -h
 
 # █▀▄ █▀▀ █░█
 # █▄▀ ██▄ ▀▄▀ # --source | -s (winget,msstore)
-winget install "git" "github cli" "github desktop" "lazygit" "nodejs" "terminal" "powershell" "Microsoft Visual Studio Code" "figma" "imagemagick" "ResponsivelyApp" -s winget --accept-package-agreements --accept-source-agreements -h
+winget install "git" "github cli" "github desktop" "lazygit" "nodejs" "terminal" "powershell" "Microsoft Visual Studio Code" "figma" "imagemagick" "ResponsivelyApp" "Microsoft.VCRedist.2015+.x64" -s winget --accept-package-agreements --accept-source-agreements -h
 
 # ▄▀█ █▀█ █▀█ █▀
 # █▀█ █▀▀ █▀▀ ▄█
-winget install "nvcleanstall"  "powertoys" "nilesoft shell" "caprine" "discord" "telegram" "megasync" "fdm" "canva" "ahk" "k-lite mega codec pack" "obs studio" "VLC media player" "winrar" "anydesk" "gpu-z" "f.lux" "afterburner" "superf4" "wingetUI" "oracle.JDK.18" "7-zip" "Alex313031.Thorium" "Microsoft XNA Framework Redistributable Refresh" "CPUID CPU-Z" -s winget --accept-package-agreements --accept-source-agreements -h
+winget install "nvcleanstall"  "powertoys" "nilesoft shell" "caprine" "discord" "telegram" "megasync" "fdm" "canva" "ahk" "k-lite mega codec pack" "obs studio" "VLC media player" "winrar" "anydesk" "gpu-z" "f.lux" "afterburner" "superf4" "wingetUI" "oracle.JDK.18" "7-zip" "Alex313031.Thorium" "Microsoft XNA Framework Redistributable Refresh" "CPUID CPU-Z" "sharex" -s winget --accept-package-agreements --accept-source-agreements -h
