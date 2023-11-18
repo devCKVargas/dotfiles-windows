@@ -14,26 +14,26 @@
  <td>
   <table>
   <tr><td>Winget-CLI</td></tr>
-  <tr><td>.NET Runtimes</td></tr>
-  <tr><td>Visual C++ Runtimes</td></tr>
   <tr><td>Eartrumpet (Volume Control)</td></tr>
   <tr><td>Traffic-Monitor (Network Speed monitor)</td></tr>
   <tr><td>====== <code>FONTS</code> ======</td></tr>
-  <tr><td>nerd-fonts-JetBrainsMono (font)</td></tr>
-  <tr><td>nerd-fonts-Arimo (font)</td></tr>
-  <tr><td>nerd-fonts-Meslo (font)</td></tr>
+  <tr><td>JetBrainsMono Nerd Font</td></tr>
+  <tr><td>Arimo Nerd Font</td></tr>
+  <tr><td>Meslo Nerd Font</td></tr>
+  <tr><td>======  ======</td></tr>
+  <tr><td>.NET Runtimes</td></tr>
+  <tr><td>Visual C++ Runtimes</td></tr>
+  <tr><td>winfetch</td></tr>
+  <tr><td>Open Audio Library (openal)</td></tr>
   </table>
  </td>
 </table>
 <br>
 <table>
+ <td style="text-align: center;" colspan="2"><code>Winget</code></td>
  <tr style="text-align: center;">
-  <td>
-  <code>Winget(dev apps)</code>
-  </td>
- <td>
-   <code>Winget(apps)</code>
- </td>
+  <td><b>Dev apps</b></td>
+  <td><b>Apps</b></td>
  </tr>
  <td>
   <table>
@@ -48,6 +48,7 @@
   <tr><td>Figma</td></tr>
   <tr><td>ImageMagick</td></tr>
   <tr><td>Responsively App</td></tr>
+  <tr><td>Visual C++ Redist Runtimes 2015-2022</td></tr>
  </table>
  <td>
  <table>
@@ -57,16 +58,18 @@
  <tr><td>AutoHotKey</td></tr>
  <tr><td>Caprine (Messenger)</td></tr>
  <tr><td>Canva</td></tr>
- <tr><td>CPU-Z version Taichi</td></tr>
+ <tr><td>CPU-Z</td></tr>
  <tr><td>Discord</td></tr>
  <tr><td>f.lux</td></tr>
  <tr><td>Free Download Manager</td></tr>
  <tr><td>GPU-Z</td></tr>
  <tr><td>K-lite mega codec pack</td></tr>
  <tr><td>Megasync</td></tr>
+ <tr><td>Microsoft XNA Framework Redist (Refresh)</td></tr>
  <tr><td>NVCleanstall</td></tr>
  <tr><td>OBS Studio</td></tr>
  <tr><td>Powertoys</td></tr>
+ <tr><td>ShareX</td></tr>
  <tr><td>SuperF4</td></tr>
  <tr><td>Telegram</td></tr>
  <tr><td>Thorium Browser</td></tr>
