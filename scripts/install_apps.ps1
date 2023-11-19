@@ -22,7 +22,7 @@ winget update --all -h --disable-interactivity ## --silent | -h
 
 # █▀▄ █▀▀ █░█
 # █▄▀ ██▄ ▀▄▀ # --source | -s (winget,msstore)
-winget install "git" "github cli" "github desktop" "lazygit" "nodejs" "terminal" "powershell" "Microsoft Visual Studio Code" "figma" "imagemagick" "ResponsivelyApp" "Microsoft.VCRedist.2015+.x64" -s winget --accept-package-agreements --accept-source-agreements -h
+winget install "git" "github cli" "github desktop" "lazygit" "nodejs" "terminal" "powershell" "Microsoft Visual Studio Code" "figma" "imagemagick" "ResponsivelyApp" "Microsoft.VCRedist.2015+.x64" "Microsoft.VCRedist.2015+.x86" -s winget --accept-package-agreements --accept-source-agreements -h
 
 # ▄▀█ █▀█ █▀█ █▀
 # █▀█ █▀▀ █▀▀ ▄█
