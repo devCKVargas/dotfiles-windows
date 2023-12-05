@@ -1,5 +1,5 @@
-### > irm https://massgrave.dev/get | iex             # Microsoft Activation Scripts (massgrave.dev)
-### > iwr -useb https://christitus.com/win | iex      # WinUtil (ChrisTitusTech)
+# irm https://massgrave.dev/get | iex         # Microsoft Activation Scripts (massgrave.dev)
+# iwr -useb https://christitus.com/win | iex  # WinUtil (ChrisTitusTech)
 
 # █░█░█ █ █▄░█ █▀▀ █▀▀ ▀█▀   █▀▀ █ ▀▄▀ # Winget (FIX! Slow Download)
 # ▀▄▀▄▀ █ █░▀█ █▄█ ██▄ ░█░   █▀░ █ █░█ # `winget settings`
@@ -13,7 +13,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 # █▀▀ █░█ █▀█ █▀▀ █▀█
 # █▄▄ █▀█ █▄█ █▄▄ █▄█
-choco install "winget" "eartrumpet" "traffic-monitor" "nerd-fonts-jetbrainsMono" "nerd-fonts-arimo" "nerd-fonts-meslo" "dotnet-all" "vcredist-all" "winfetch" "openal" "spicetify-cli" "spicetify-marketplace" -y
+choco install "winget" "eartrumpet" "traffic-monitor" "nerd-fonts-jetbrainsMono" "nerd-fonts-arimo" "nerd-fonts-meslo" "dotnet-all" "vcredist-all" "winfetch" "openal" "spicetify-cli" "spicetify-marketplace" "nilesoft-shell" -y
 choco cache remove -y # clear chocolatey cache
 
 # █░█░█ █ █▄░█ █▀▀ █▀▀ ▀█▀
@@ -26,4 +26,4 @@ winget install "git" "github cli" "github desktop" "lazygit" "nodejs" "terminal"
 
 # ▄▀█ █▀█ █▀█ █▀
 # █▀█ █▀▀ █▀▀ ▄█
-winget install "nvcleanstall" "powertoys" "nilesoft shell" "AltSnap" "caprine" "discord" "telegram" "megasync" "fdm" "canva" "ahk" "k-lite mega codec pack" "obs studio" "VLC media player" "winrar" "anydesk" "gpu-z" "f.lux" "afterburner" "superf4" "wingetUI" "oracle.JDK.18" "7-zip" "Alex313031.Thorium" "Microsoft XNA Framework Redistributable Refresh" "CPUID CPU-Z" "sharex" "ookla.speedtest.CLI" "spotify" -s winget --accept-package-agreements --accept-source-agreements -h
+winget install "nvcleanstall" "powertoys" "AltSnap" "caprine" "discord" "telegram" "megasync" "fdm" "canva" "ahk" "k-lite mega codec pack" "obs studio" "VLC media player" "winrar" "anydesk" "gpu-z" "f.lux" "afterburner" "superf4" "wingetUI" "oracle.JDK.18" "7-zip" "Alex313031.Thorium" "Microsoft XNA Framework Redistributable Refresh" "CPUID CPU-Z" "sharex" "ookla.speedtest.CLI" "spotify" -s winget --accept-package-agreements --accept-source-agreements -h
