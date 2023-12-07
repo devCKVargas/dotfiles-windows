@@ -37,17 +37,14 @@ if ($?) {
 
 # ▀█▀ ▄▀█ █▀ █▄▀  █▀ █▀▀ █░█ █▀▀ █▀▄ █░█ █░░ █▀▀ █▀█
 # ░█░ █▀█ ▄█ █░█  ▄█ █▄▄ █▀█ ██▄ █▄▀ █▄█ █▄▄ ██▄ █▀▄
-# ▶ Copy AltSnap(Elevated) to System32\Tasks
-Copy-Item -Recurse .\conf\task-scheduler\elevated_AltSnap C:\windows\System32\Tasks\
-
 if ($?) {
-    Write-Host -ForegroundColor Green " ✅ SUCCESS: copied AltSnap(Elevated) to %windir%\System32\Tasks\"
     $openTaskScheduler = Read-Host -Prompt "Do you want to open Task Scheduler? (y/N)"
+    if (-not $openTaskScheduler) { $openTaskScheduler = 'Y' }
 
     if ($openTaskScheduler -eq 'Y' -or $openTaskScheduler -eq 'y') {
         Write-Host -ForegroundColor Blue "Opening Task Scheduler..."
-        taskschd.msc # Import w/ taskschd.msc
+        Write-Host "HOW: Click Action > Import Task"
+        Write-Host "HOW: Import from <thisfolder>\conf\task-scheduler\<filename>.xml"
+        taskschd.msc
     }
-} else {
-    Write-Host -ForegroundColor Red "❌ FAILED: Couldn't copy AltSnap(Elevated) to %windir%\System32\Tasks\ 📖 Read 👆"
 }

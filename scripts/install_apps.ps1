@@ -21,9 +21,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 # ===============================================================
 $updateChoco = Read-Host -Prompt "Update installed apps? (Y/n)"
-if (-not $updateChoco) {
-    $updateChoco = 'Y'
-}
+if (-not $updateChoco) { $updateChoco = 'Y' }
 
 if ($updateChoco -eq 'Y' -or $updateChoco -eq 'y') {
 	Write-Host "
@@ -37,9 +35,7 @@ if ($updateChoco -eq 'Y' -or $updateChoco -eq 'y') {
 	
 # ===============================================================
 $installChoco = Read-Host -Prompt "Install choco apps? (Y/n)"
-if (-not $installChoco) {
-    $installChoco = 'Y'
-}
+if (-not $installChoco) { $installChoco = 'Y' }
 
 if ($installChoco -eq 'Y' -or $installChoco -eq 'y') {
 	Write-Host "
@@ -59,9 +55,7 @@ if ($installChoco -eq 'Y' -or $installChoco -eq 'y') {
 	
 # ===============================================================
 $clearChocoCache = Read-Host -Prompt "Clear cache? (Y/n)"
-if (-not $clearChocoCache) {
-    $clearChocoCache = 'Y'
-}
+if (-not $clearChocoCache) { $clearChocoCache = 'Y' }
 
 if ($clearChocoCache -eq 'Y' -or $clearChocoCache -eq 'y') {
 	choco cache remove -y
@@ -79,9 +73,7 @@ Write-Host "
 ▀▄▀▄▀ █ █░▀█ █▄█ ██▄ ░█░"
 
 $updateWinget = Read-Host -Prompt "Update installed apps? (Y/n)"
-if (-not $updateWinget) {
-    $updateWinget = 'Y'
-}
+if (-not $updateWinget) { $updateWinget = 'Y' }
 
 if ($updateWinget -eq 'Y' -or $updateWinget -eq 'y') {
 	Write-Host "
@@ -97,9 +89,7 @@ if ($updateWinget -eq 'Y' -or $updateWinget -eq 'y') {
 # █▀▄ █▀▀ █░█ # --source -s 
 # █▄▀ ██▄ ▀▄▀ # (winget,msstore)
 $installWingetAppsDev = Read-Host -Prompt "Install Dev apps? (Y/n)"
-if (-not $installWingetAppsDev) {
-    $installWingetAppsDev = 'Y'
-}
+if (-not $installWingetAppsDev) { $installWingetAppsDev = 'Y' }
 
 if ($installWingetAppsDev -eq 'Y' -or $installWingetAppsDev -eq 'y') {
 	Write-Host "
@@ -121,9 +111,7 @@ if ($installWingetAppsDev -eq 'Y' -or $installWingetAppsDev -eq 'y') {
 # ▄▀█ █▀█ █▀█ █▀ # Winget
 # █▀█ █▀▀ █▀▀ ▄█ # Source: Winget 
 $installWingetApps = Read-Host -Prompt "Install apps? (Y/n)"
-if (-not $installWingetApps) {
-    $updateChoco = 'Y'
-}
+if (-not $installWingetApps) { $updateChoco = 'Y' }
 
 if ($installWingetApps -eq 'Y' -or $installWingetApps -eq 'y') {
 	Write-Host "
@@ -145,9 +133,7 @@ if ($installWingetApps -eq 'Y' -or $installWingetApps -eq 'y') {
 # █▀▄▀█ █▀   ▄▀█ █▀█ █▀█ █▀ # Winget
 # █░▀░█ ▄█   █▀█ █▀▀ █▀▀ ▄█ # source: msstore
 $installWingetAppsMS = Read-Host -Prompt "Install MS apps? (Y/n)"
-if (-not $installWingetAppsMS) {
-    $installWingetAppsMS = 'Y'
-}
+if (-not $installWingetAppsMS) { $installWingetAppsMS = 'Y' }
 
 if ($installWingetAppsMS -eq 'Y' -or $installWingetAppsMS -eq 'y') {
 	Write-Host "
@@ -171,9 +157,7 @@ Write-Host "
 █▀█ █▀▀ █▀ ▀█▀ █▀█ █▀█ █▀▀   █▀▀ █▀█ █▄░█ █▀▀
 █▀▄ ██▄ ▄█ ░█░ █▄█ █▀▄ ██▄   █▄▄ █▄█ █░▀█ █▀░"
 $restoreConf = Read-Host -Prompt "Finishing setup. Would you like to restore available configurations? (Y/n)"
-if (-not $restoreConf) {
-    $restoreConf = 'Y'
-}
+if (-not $restoreConf) { $restoreConf = 'Y' }
 
 if ($restoreConf -eq 'Y' -or $restoreConf -eq 'y') {
 	Write-Host -ForegroundColor Blue " 🔧 Restoring configs..."
