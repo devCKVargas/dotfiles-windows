@@ -5,34 +5,36 @@ Write-Host -ForegroundColor Blue "👨‍💻Creating Windows Terminal directory
 # Check if the folder already exists
 if (-not (Test-Path ~\Appdata\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\)) {
     # Create Windows terminal directory
+    Write-Host -ForegroundColor Yellow " ⚠️ Windows terminal directory not found.."
+    Write-Host -ForegroundColor Blue " Creating directory..."
     mkdir ~\Appdata\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\
 
     if ($?) {
-        Write-Host -ForegroundColor Green " ✅ SUCCESS: Windows terminal settings directory created"
+        Write-Host -ForegroundColor Green " ✅ Success!"
         Write-Host -ForegroundColor Blue " Restoring settings..."
 
         # Restore settings
-        Copy-Item -Recurse .\conf\terminal\settings.json ~\Appdata\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\
+        Copy-Item -Recurse -Force .\conf\terminal\settings.json ~\Appdata\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\
 
         if ($?) {
-            Write-Host -ForegroundColor Green " ✅ SUCCESS: Windows Terminal settings restored"
+            Write-Host -ForegroundColor Green " ✅ Success!"
         } else {
-            Write-Host -ForegroundColor Red " ❌ FAILED: Couldn't copy Windows Terminal settings. 📖 Read 👆"
+            Write-Host -ForegroundColor Red " ❌ Couldn't copy Windows Terminal settings. 📖 Read 👆"
         }
     } else {
-        Write-Host -ForegroundColor Red " ❌ FAILED: Couldn't create Windows terminal settings directory. 📖 Read 👆"
+        Write-Host -ForegroundColor Red " ❌ Couldn't create Windows terminal settings directory. 📖 Read 👆"
     }
 } else {
     Write-Host -ForegroundColor Yellow " ⚠️ Directory already exists. Skipping creation."
     Write-Host -ForegroundColor Blue " Restoring settings..."
 
     # Restore settings
-    Copy-Item -Recurse .\conf\terminal\settings.json ~\Appdata\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\
+    Copy-Item -Recurse -Force .\conf\terminal\settings.json ~\Appdata\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\
 
     if ($?) {
-        Write-Host -ForegroundColor Green " ✅ SUCCESS: Windows Terminal settings restored"
+        Write-Host -ForegroundColor Green " ✅ Success!"
     } else {
-        Write-Host -ForegroundColor Red " ❌ FAILED: Couldn't copy Windows Terminal settings. 📖 Read 👆"
+        Write-Host -ForegroundColor Red " ❌ Couldn't copy Windows Terminal settings. 📖 Read 👆"
     }
 }
 
@@ -79,12 +81,13 @@ Write-Host "
 ▄▀█ █░█ █▄▀
 █▀█ █▀█ █░█ "
 
-Copy-Item -Recurse .\scripts\AHK\linux_hotkey.ahk '~\Appdata\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\'
+Write-Host -ForegroundColor Blue " Restoring AHK to startup..."
+Copy-Item -Recurse -Force .\scripts\AHK\linux_hotkey.ahk '~\Appdata\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\'
 
 if ($?) {
-    Write-Host -ForegroundColor Green " ✅ SUCCESS: AHK to Startup"
+    Write-Host -ForegroundColor Green " ✅ Success!"
 } else {
-    Write-Host -ForegroundColor Red " ❌ FAILED: Couldn't copy AHK to Startup 📖 Read 👆"
+    Write-Host -ForegroundColor Red " ❌ Couldn't copy AHK to Startup 📖 Read 👆"
 }
 
 Write-Host "
