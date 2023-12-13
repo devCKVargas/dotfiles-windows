@@ -41,19 +41,38 @@ Write-Host "
 █▀█ █▀█ █░█░█ █▀▀ █▀█ █▀ █░█ █▀▀ █░░ █░░
 █▀▀ █▄█ ▀▄▀▄▀ ██▄ █▀▄ ▄█ █▀█ ██▄ █▄▄ █▄▄ "
 if (-not (Test-Path ~\Documents\PowerShell\)) {
+    Write-Host -ForegroundColor Yellow " ⚠️ PowerShell directory not found.."
+    Write-Host -ForegroundColor Blue " Creating directory..."
     mkdir ~\Documents\PowerShell\
     if ($?) {
-        Write-Host -ForegroundColor Green " ✅ SUCCESS: PowerShell profile directory created"
+        Write-Host -ForegroundColor Green " ✅ Success!"
         Write-Host -ForegroundColor Blue " Restoring profile..."
-        Copy-Item -Recurse .\conf\PowerShell\* ~\Documents\PowerShell\
+        Copy-Item -Recurse -Force .\conf\PowerShell\* ~\Documents\PowerShell\
+        if ($?) {
+            Write-Host -ForegroundColor Green " ✅ Success!"
+        } else {
+            Write-Host -ForegroundColor Red " ❌ Couldn't restore PowerShell profile. 📖 Read 👆"
+        }
     } else { 
-        Write-Host -ForegroundColor Green " ❌ FAILED: Couldn't create PowerShell profile directory. 📖 Read 👆"
+        Write-Host -ForegroundColor Red " ❌ Couldn't create PowerShell profile directory. 📖 Read 👆"
     }
 } else {
     Write-Host -ForegroundColor Yellow " ⚠️ Directory already exists. Skipping creation."
     Write-Host -ForegroundColor Blue " Restoring profile..."
-    Copy-Item -Recurse .\conf\PowerShell\* ~\Documents\PowerShell\
-    Write-Host -ForegroundColor Blue " ✅ SUCCESS: PowerShell profile restored"
+    Copy-Item -Recurse -Force .\conf\PowerShell\* ~\Documents\PowerShell\
+    if ($?) {
+        Write-Host -ForegroundColor Green " ✅ Success!"
+        Write-Host -ForegroundColor Blue " Restoring oh-my-posh themes conf..."
+        Copy-Item -Recurse -Force .\conf\oh-my-posh\themes\* $env:POSH_THEMES_PATH\
+        if ($?) {
+            Write-Host -ForegroundColor Green " ✅ Success!"
+        } else {
+            Write-Host -ForegroundColor Red " ❌ Couldn't restore oh-my-posh theme. 📖 Read 👆"
+        }
+    } else {
+        Write-Host -ForegroundColor Red " ❌ Couldn't restore PowerShell profile. 📖 Read 👆"
+        Write-Host -ForegroundColor Yellow " ⚠️ Skipping oh-my-posh themes conf..."
+    }
 }
 
 Write-Host "
