@@ -13,6 +13,9 @@ function editWindows {
 function lazy {
 	lazygit
 }
+function gitShort {
+	git
+}
 
 
 # ▄▀█ █░░ █ ▄▀█ █▀
@@ -23,3 +26,4 @@ Set-Alias torepo repoDir
 Set-Alias codeWindowsRepo editWindows
 # 
 Set-Alias lg lazy
+Set-Alias g gitShort
