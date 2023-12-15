@@ -18,11 +18,26 @@
 </table>
 </div>
 
+## Repo
+
+Clone with `git`
+
+```shell
+git clone https://github.com/devckvargas/windows.git
+```
+
+or with `github cli`
+
+```shell
+gh repo clone devckvargas/windows
+```
+
 ## App install script
 
 > [!TIP]
-> Install script alone is enough to run every script.
-> It will prompt the user to restore configs at the end.
+> Install script alone is enough. It will prompt the user to [restore configs](#restore-conf) at the end.
+
+Usage:
 
 ```shell
 .\scripts\install_apps.ps1
@@ -111,7 +126,6 @@
       <tr><td>SuperF4</td></tr>
       <tr><td>TickTick</td></tr>
       <tr><td>Telegram</td></tr>
-      <tr><td>Thorium Browser</td></tr>
       <tr><td>VLC media player</td></tr>
       <tr><td>WinRAR</td></tr>
       <tr><td>WingetUI</td></tr>
@@ -122,8 +136,7 @@
 
 ### Restore conf
 
-> !Warning
-> Run
+Usage
 
 ```shell
 .\scripts\install_script.ps1
