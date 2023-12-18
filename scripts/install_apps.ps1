@@ -43,7 +43,7 @@ if ($installChoco -eq 'Y' -or $installChoco -eq 'y') {
 	|I|n|s|t|a|l|l|i|n|g| |c|h|o|c|o|l|a|t|e|y| |a|p|p|s|
 	+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+ "
 		
-	choco install -y "winget" "eartrumpet" "traffic-monitor" "nerd-fonts-jetbrainsMono" "nerd-fonts-arimo" "nerd-fonts-meslo" "dotnet-all" "winfetch" "openal" "nilesoft-shell"
+	choco install -y "winget" "eartrumpet" "traffic-monitor" "nerd-fonts-jetbrainsMono" "nerd-fonts-arimo" "nerd-fonts-meslo" "dotnet-all" "winfetch" "openal" "nilesoft-shell" "amd-ryzen-chipset" "realtek-hd-audio-driver"
 		
 	Write-Host -Foreground Green "
 	+-+-+-+-+-+
