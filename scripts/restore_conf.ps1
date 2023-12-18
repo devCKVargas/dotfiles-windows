@@ -82,7 +82,7 @@ Write-Host "
 █▀█ █▀█ █░█ "
 
 Write-Host -ForegroundColor Blue " Restoring AHK to startup..."
-Copy-Item -Recurse -Force .\scripts\AHK\linux_hotkey.ahk '~\Appdata\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\'
+Copy-Item -Recurse -Force .\scripts\AHK\* '~\Appdata\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\'
 
 if ($?) {
     Write-Host -ForegroundColor Green " ✅ Success!"
