@@ -53,6 +53,7 @@
                 "name": "Windows PowerShell"
             },
             {
+                "colorScheme": "One Half Dark",
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
@@ -60,6 +61,7 @@
             },
             {
                 "backgroundImage": "D:\\Wallpapers\\swww\\Catppuccin-Mocha\\pastel-window.png",
+                "backgroundImageOpacity": 0.05,
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
                 "name": "PowerShell",
