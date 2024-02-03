@@ -14,13 +14,13 @@
         {
           "foreground": "p:os",
           "style": "plain",
-          "template": "{{.Icon}}  ",
+          "template": "{{.Icon}} ",
           "type": "os"
         },
         {
           "foreground": "p:blue",
           "style": "plain",
-          "template": " ",
+          "template": "{{ .UserName }}@{{ .HostName }} ",
           "type": "session"
         },
         {
