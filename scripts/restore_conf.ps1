@@ -1,3 +1,14 @@
+$userAccount = $env:USERNAME
+$confTerminal = '.\conf\terminal\*'
+$confOhMyPosh = '.\conf\oh-my-posh\themes\*'
+$confTaskSched = '.\conf\task-scheduler\*'
+$confSpicetify = '.\conf\spicetify\*'
+$confAltSnap = '.\conf\$appdata\AltSnap\*'
+$confqBittorent = '.\conf\$appdata\qBittorent\*'
+$confTrafficMonitor = '.\conf\$localappdata\TrafficMonitor\*'
+$confPowerShell = '.\conf\$documents\PowerShell\*'
+$confAHK = '.\conf\$startup\AHK\*'
+
 Write-Host "
 █░█░█ █ █▄░█ █▀▄ █▀█ █░█░█ █▀  ▀█▀ █▀▀ █▀█ █▀▄▀█ █ █▄░█ ▄▀█ █░░
 ▀▄▀▄▀ █ █░▀█ █▄▀ █▄█ ▀▄▀▄▀ ▄█  ░█░ ██▄ █▀▄ █░▀░█ █ █░▀█ █▀█ █▄▄ "
@@ -14,7 +25,7 @@ if (-not (Test-Path ~\Appdata\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8
         Write-Host -ForegroundColor Blue " Restoring settings..."
 
         # Restore settings
-        Copy-Item -Recurse -Force .\conf\terminal\settings.json ~\Appdata\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\
+        Copy-Item -Recurse -Force -Path $confTerminal ~\Appdata\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\
 
         if ($?) {
             Write-Host -ForegroundColor Green " ✅ Success!"
@@ -29,7 +40,7 @@ if (-not (Test-Path ~\Appdata\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8
     Write-Host -ForegroundColor Blue " Restoring settings..."
 
     # Restore settings
-    Copy-Item -Recurse -Force .\conf\terminal\settings.json ~\Appdata\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\
+    Copy-Item -Recurse -Force -Path $confTerminal ~\Appdata\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\
 
     if ($?) {
         Write-Host -ForegroundColor Green " ✅ Success!"
@@ -49,7 +60,7 @@ if (-not (Test-Path ~\Documents\PowerShell\)) {
     if ($?) {
         Write-Host -ForegroundColor Green " ✅ Success!"
         Write-Host -ForegroundColor Blue " Restoring profile..."
-        Copy-Item -Recurse -Force .\conf\PowerShell\* ~\Documents\PowerShell\
+        Copy-Item -Recurse -Force -Path $confPowerShell ~\Documents\PowerShell\
         if ($?) {
             Write-Host -ForegroundColor Green " ✅ Success!"
         } else {
@@ -61,11 +72,11 @@ if (-not (Test-Path ~\Documents\PowerShell\)) {
 } else {
     Write-Host -ForegroundColor Yellow " ⚠️ Directory already exists. Skipping creation."
     Write-Host -ForegroundColor Blue " Restoring profile..."
-    Copy-Item -Recurse -Force .\conf\PowerShell\* ~\Documents\PowerShell\
+    Copy-Item -Recurse -Force -Path $confPowerShell ~\Documents\PowerShell\
     if ($?) {
         Write-Host -ForegroundColor Green " ✅ Success!"
         Write-Host -ForegroundColor Blue " Restoring oh-my-posh themes conf..."
-        Copy-Item -Recurse -Force .\conf\oh-my-posh\themes\* $env:POSH_THEMES_PATH\
+        Copy-Item -Recurse -Force -Path $confOhMyPosh $env:POSH_THEMES_PATH\
         if ($?) {
             Write-Host -ForegroundColor Green " ✅ Success!"
         } else {
@@ -82,7 +93,7 @@ Write-Host "
 █▀█ █▀█ █░█ "
 
 Write-Host -ForegroundColor Blue " Restoring AHK to startup..."
-Copy-Item -Recurse -Force .\scripts\AHK\* '~\Appdata\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\'
+Copy-Item -Recurse -Force -Path $confAHK '~\Appdata\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\'
 
 if ($?) {
     Write-Host -ForegroundColor Green " ✅ Success!"
