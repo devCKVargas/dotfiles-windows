@@ -26,7 +26,7 @@
             "keys": "ctrl+shift+f"
         }
     ],
-    "alwaysShowNotificationIcon": true,
+    "centerOnLaunch": true,
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
@@ -39,22 +39,30 @@
         "defaults": {
             "backgroundImage": "C:\\Users\\devck\\Pictures\\terminal-wallpaper\\windows 10.png",
             "backgroundImageOpacity": 0.2,
+            "bellStyle": [
+                "audible",
+                "taskbar"
+            ],
             "colorScheme": "Catppuccin Mocha",
             "cursorShape": "emptyBox",
             "font": {
                 "face": "JetBrainsMono Nerd Font"
             },
-            "opacity": 70,
-            "useAcrylic": true,
-            "useAtlasEngine": true
+            "opacity": 100,
+            "useAcrylic": true
         },
         "list": [
             {
+                "backgroundImage": "C:\\Users\\devck\\Pictures\\terminal-wallpaper\\windows 10.png",
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
                 "name": "Windows PowerShell"
             },
             {
+                "backgroundImage": "C:\\Users\\devck\\Pictures\\terminal-wallpaper\\windows 10.png",
+                "colorScheme": "One Half Dark",
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "Command Prompt"
@@ -67,6 +75,7 @@
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
                 "name": "PowerShell",
+                "opacity": 95,
                 "source": "Windows.Terminal.PowershellCore"
             },
             {
@@ -76,13 +85,12 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "backgroundImage": "C:\\Users\\devck\\Pictures\\terminal-wallpaper\\Debian_Neofetch.png",
-                "bellStyle": "window",
-                "colorScheme": "One Half Dark",
-                "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
+                "commandline": "C:\\windows\\system32\\wsl.exe -d Debian",
+                "guid": "{b1ba6fad-e662-4670-99e1-449aaa4e3afb}",
                 "hidden": false,
+                "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
                 "name": "Debian",
-                "source": "Windows.Terminal.Wsl"
+                "startingDirectory": "~"
             }
         ]
     },
@@ -333,8 +341,9 @@
             },
             "window": {
                 "applicationTheme": "dark",
-                "useMica": false
+                "useMica": true
             }
         }
     ],
     "useAcrylicInTabRow": true
+}
