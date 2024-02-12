@@ -26,6 +26,11 @@ function Request-Admin {
     }
 	}
 	
+# Define the path to the packages file
+$packagesFilePath = ".\packages.txt"
+
+# Read package names from the file
+$packageNames = Get-Content $packagesFilePath | Where-Object { $_ -notmatch '^#' } | ForEach-Object { "`"$_`"" }
 
 #  # Winget (Slow download fix)
 #  # open settings using $ winget settings
@@ -129,71 +134,14 @@ if ($updateWinget -eq 'Y' -or $updateWinget -eq 'y') {
 	Write-Host -ForegroundColor Yellow "Skipping updates."
 }
 
-# █▀▄ █▀▀ █░█ # --source -s 
-# █▄▀ ██▄ ▀▄▀ # (winget,msstore)
-$installWingetAppsDev = Read-Host -Prompt "Install Dev apps? (Y/n)"
-if (-not $installWingetAppsDev) { $installWingetAppsDev = 'Y' }
+# Build the winget command
+$wingetCommand = "winget install $($packageNames -join ' ') -s winget --accept-package-agreements --accept-source-agreements -h"
 
-if ($installWingetAppsDev -eq 'Y' -or $installWingetAppsDev -eq 'y') {
-	Write-Host "
-	+-+-+-+-+-+-+-+-+-+-+ +-+-+-+ +-+-+-+-+
-	|I|n|s|t|a|l|l|i|n|g| |d|e|v| |a|p|p|s|
-	+-+-+-+-+-+-+-+-+-+-+ +-+-+-+ +-+-+-+-+ "
-	
-	winget install "Git.Git" "GitHub.cli" "GitHub.GitHubDesktop" "JesseDuffield.lazygit" "OpenJS.NodeJS" "Microsoft.WindowsTerminal" "Microsoft.PowerShell" "Microsoft.VisualStudioCode" "Figma.Figma" "ResponsivelyApp.ResponsivelyApp" "BurntSushi.ripgrep.MSVC" "JanDeDobbeleer.OhMyPosh" "AdrienAllard.FileConverter" "Google.PlatformTools" -s winget --accept-package-agreements --accept-source-agreements -h
-	
-	Write-Host -Foreground Green "
-	+-+-+-+-+-+
-	|D|o|n|e|!|
-	+-+-+-+-+-+ "
+# Output the winget command
+Write-Host $wingetCommand
 
-} else {
-	Write-Host -ForegroundColor Yellow "Skipping Dev apps."
-}
-
-# ▄▀█ █▀█ █▀█ █▀ # Winget
-# █▀█ █▀▀ █▀▀ ▄█ # Source: Winget 
-$installWingetApps = Read-Host -Prompt "Install apps? (Y/n)"
-if (-not $installWingetApps) { $updateChoco = 'Y' }
-
-if ($installWingetApps -eq 'Y' -or $installWingetApps -eq 'y') {
-	Write-Host "
-	+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+ +-+-+-+-+
-	|I|n|s|t|a|l|l|i|n|g| |w|i|n|g|e|t| |a|p|p|s|
-	+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+ +-+-+-+-+ "
-
-	winget install "nvcleanstall" "powertoys" "AltSnap" "caprine" "discord" "telegram" "megasync" "fdm" "canva" "ahk" "k-lite mega codec pack" "obs studio" "VLC media player" "winrar" "anydesk" "gpu-z" "f.lux" "afterburner" "superf4" "wingetUI" "oracle.JDK.18" "7-zip" "Microsoft XNA Framework Redistributable Refresh" "CPUID CPU-Z" "sharex" "ookla.speedtest.CLI" "spotify.spotify" "spicetify.spicetify" "Appest.TickTick" "NextDNS.NextDNS.Desktop" "capcut" "qbittorrent.qbittorrent" "th-ch.YouTubeMusic" "IObit.IObitUnlocker" "Microsoft.DotNet.DesktopRuntime.3_1" "Microsoft.DotNet.DesktopRuntime.5" "Microsoft.DotNet.DesktopRuntime.6" "Microsoft.DotNet.DesktopRuntime.7" "Microsoft.DotNet.DesktopRuntime.8" "abbodi1406.vcredist" "univrsal.tuna" -s winget --accept-package-agreements --accept-source-agreements -h
-
-	Write-Host -Foreground Green "
-	+-+-+-+-+-+
-	|D|o|n|e|!|
-	+-+-+-+-+-+ "
-
-} else {
-	Write-Host -ForegroundColor Yellow "Skipping apps."
-}
-
-# █░█ █░█░█ █▀█   ▄▀█ █▀█ █▀█ █▀ # Winget
-# █▄█ ▀▄▀▄▀ █▀▀   █▀█ █▀▀ █▀▀ ▄█ # source: msstore
-$installWingetAppsUWP = Read-Host -Prompt "Install MS apps? (Y/n)"
-if (-not $installWingetAppsUWP) { $installWingetAppsUWP = 'Y' }
-
-if ($installWingetAppsUWP -eq 'Y' -or $installWingetAppsUWP -eq 'y') {
-	Write-Host "
-	+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+ +-+-+-+-+
-	|I|n|s|t|a|l|l|i|n|g| |M|S|S|t|o|r|e| |a|p|p|s|
-	+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+ +-+-+-+-+ "
-
-	winget install "eartrumpet" "Microsoft To Do" "KDE Connect" "Messenger" -s msstore --accept-package-agreements --accept-source-agreements -h
-
-	Write-Host -Foreground Green "
-	+-+-+-+-+-+
-	|D|o|n|e|!|
-	+-+-+-+-+-+ "
-
-} else {
-	Write-Host -ForegroundColor Yellow "Skipping Microsoft apps."
-}
+# Execute the winget command
+Invoke-Expression $wingetCommand
 
 
 Write-Host "

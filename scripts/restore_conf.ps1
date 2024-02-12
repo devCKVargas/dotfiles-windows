@@ -131,6 +131,9 @@ if ($?) {
         Write-Host -ForegroundColor Blue "Opening Task Scheduler..."
         Write-Host -ForegroundColor Yellow "`n`nHOW: Click Action > Import Task"
         Write-Host -ForegroundColor Yellow "HOW: Import from <repoDir>\conf\task-scheduler\<filename>.xml`n`n"
+        Write-Host -ForegroundColor Yellow "TEST: Run <task name>`n`n"
         taskschd.msc
+    } else {
+        Write-Host -ForegroundColor Green "Done."
     }
 }
