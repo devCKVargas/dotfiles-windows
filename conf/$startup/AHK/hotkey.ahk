@@ -1,8 +1,13 @@
 ﻿#Requires AutoHotkey v2.0
 
+^#r::{															; 	Reload Script Dialog ; Ctrl + Super + R
+	if MsgBox("Reload the script?",, "Y/N") = "Yes"
+		Reload
+}
+
 ; █░█ ▄▀█ █▀█
 ; ▀▄▀ █▀█ █▀▄
-terminal := "wt"		; windows terminal
+terminal := "wt"			; windows terminal
 browser := "msedge"
 editor := "code"
 spotify := "spotify"
@@ -12,16 +17,19 @@ screenshotFolder := "D:\--ShareX--\Screenshots\" . currentYear . "-" . currentMo
 
 ; ▄▀█ █▀█ █▀█ █▀	Note:
 ; █▀█ █▀▀ █▀▀ ▄█	# WindowKey, ^ Ctrl, ! Alt
-#b::Run browser											; 	Super + B 								-	launch msedge
-#c::Run editor											; 	Super + C 								-	launch vscode
+; WINDOWS TERMINAL
 #enter:: Run terminal								; 	Super + Enter 						-	launch terminal
 #NumpadEnter:: Run terminal					; 	Super + NumpadEnter 			-	launch terminal
+^#enter::Run '*RunAs "' terminal '"'
+^#NumpadEnter::Run '*RunAs "' terminal '"'
+#b::Run browser											; 	Super + B 								-	launch msedge
+#c::Run editor											; 	Super + C 								-	launch vscode
 #^!s:: Run spotify									; 	Ctrl + Super + Alt + S 		-	launch spotify
 
 ; █░█░█ █ █▄░█ █▀▄ █▀█ █░█░█
 ; ▀▄▀▄▀ █ █░▀█ █▄▀ █▄█ ▀▄▀▄▀	ToolTip "Window is Maximized"
 #q::Send "!{F4}"										; 	Super + Q									-	close active window
-;^q::Send "!{F4}"										; 	Ctrl + Q									-	close active window(Disabled)
+^q::Send "!{F4}"										; 	Ctrl + Q									-	close active window(Disabled)
 #f::{ 															;		Super + F									-	toggle maximize active window
 	ActWinState:=WinGetMinMax("A")
 	if(ActWinState > 0){
@@ -40,8 +48,6 @@ screenshotFolder := "D:\--ShareX--\Screenshots\" . currentYear . "-" . currentMo
 		WinRestore "A"
 	} else WinMinimize "A"
 }
-#+x:: Run screenshotFolder					; 	Super + Shift + x					-	open ShareX screenshot folder
+#+x:: Run screenshotFolder					; 	Super + Shift + X					-	open ShareX screenshot folder
 
-; ▀█▀ █▀█  █▀▄ █▀█
-; ░█░ █▄█  █▄▀ █▄█
-; ADD voicemeeter as volcontrol := "voicemeeter"
+; TODO: ADD voicemeeter as volcontrol := "voicemeeter"
