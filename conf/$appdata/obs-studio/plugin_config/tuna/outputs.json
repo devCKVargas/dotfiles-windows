@@ -1,0 +1,8 @@
+[
+    {
+        "format": " Song: {title} {line_break} Artist: {artists} ",
+        "last_output": "No song playing",
+        "log_mode": false,
+        "output": "C:\\Users\\devck\\song.txt"
+    }
+]
