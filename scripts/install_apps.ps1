@@ -140,7 +140,7 @@ if ($installWingetAppsDev -eq 'Y' -or $installWingetAppsDev -eq 'y') {
 	|I|n|s|t|a|l|l|i|n|g| |d|e|v| |a|p|p|s|
 	+-+-+-+-+-+-+-+-+-+-+ +-+-+-+ +-+-+-+-+ "
 	
-	winget install "Git.Git" "GitHub.cli" "GitHub.GitHubDesktop" "JesseDuffield.lazygit" "OpenJS.NodeJS" "Microsoft.WindowsTerminal" "Microsoft.PowerShell" "Microsoft.VisualStudioCode" "Figma.Figma" "ResponsivelyApp.ResponsivelyApp" "BurntSushi.ripgrep.MSVC" "JanDeDobbeleer.OhMyPosh" "AdrienAllard.FileConverter" "Google.PlatformTools" -s winget --accept-package-agreements --accept-source-agreements -h
+	winget install "Git.Git" "GitHub.cli" "GitHub.GitHubDesktop" "JesseDuffield.lazygit" "OpenJS.NodeJS" "Microsoft.WindowsTerminal" "Microsoft.PowerShell" "Microsoft.VisualStudioCode" "Figma.Figma" "ResponsivelyApp.ResponsivelyApp" "BurntSushi.ripgrep.MSVC" "JanDeDobbeleer.OhMyPosh" "AdrienAllard.FileConverter" "Google.PlatformTools" "ajeetdsouza.zoxide" "junegunn.fzf" -s winget --accept-package-agreements --accept-source-agreements -h
 	
 	Write-Host -Foreground Green "
 	+-+-+-+-+-+
