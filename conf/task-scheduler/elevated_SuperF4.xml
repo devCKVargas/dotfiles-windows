@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-16"?>
 <Task version="1.4" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
   <RegistrationInfo>
-    <Date>2023-12-0T17:41:41.1069354</Date>
-    <Author>WIN10-DEV\devck</Author>
+    <Author>devCKVargas</Author>
     <URI>\elevated_SuperF4</URI>
   </RegistrationInfo>
   <Triggers>
@@ -12,9 +11,8 @@
   </Triggers>
   <Principals>
     <Principal id="Author">
+      <GroupId>S-1-5-32-545</GroupId>
       <RunLevel>HighestAvailable</RunLevel>
-      <UserId>devck</UserId>
-      <LogonType>InteractiveToken</LogonType>
     </Principal>
   </Principals>
   <Settings>
@@ -44,7 +42,7 @@
   </Settings>
   <Actions Context="Author">
     <Exec>
-      <Command>C:\Users\devck\AppData\Roaming\SuperF4\SuperF4.exe</Command>
+      <Command>C:\your\full\path\to\Program.exe</Command>
     </Exec>
   </Actions>
 </Task>
