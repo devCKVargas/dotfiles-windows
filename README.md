@@ -18,18 +18,27 @@
 </table>
 </div>
 
-## Repo
+***This repo is currently being refactored***
 
-Clone with `git`
+## To do
+
+- use `gsudo` to isolate elivatation on certain script blocks
+- add env PATH (spotify, etc..)
+- get ideas from [ChrisTitusTech&#39;s powershell-profile](https://github.com/ChrisTitusTech/powershell-profile/)
+- (experimental) use winget installed package list and automate from there (including the [App list](#app-list) below).
+
+## Clone the repo
+
+using `git`
 
 ```shell
-git clone https://github.com/devckvargas/windows.git
+git clone https://github.com/devckvargas/dotfiles-windows.git
 ```
 
-or with `github cli`
+using `github cli`
 
 ```shell
-gh repo clone devckvargas/windows
+gh repo clone devckvargas/dotfiles-windows
 ```
 
 ## App install script
