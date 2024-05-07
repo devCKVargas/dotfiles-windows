@@ -37,7 +37,7 @@
     ],
     "profiles": {
         "defaults": {
-            "backgroundImage": "C:\\Users\\devck\\Pictures\\terminal-wallpaper\\windows 10.png",
+            "backgroundImage": "%USERPROFILE%\\Pictures\\Wallpapers\\terminal\\windows 10.png",
             "backgroundImageOpacity": 0.2,
             "bellStyle": [
                 "audible",
@@ -53,14 +53,14 @@
         },
         "list": [
             {
-                "backgroundImage": "C:\\Users\\devck\\Pictures\\terminal-wallpaper\\windows 10.png",
+                "backgroundImage": "%USERPROFILE%\\Pictures\\Wallpapers\\terminal\\windows 10.png",
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
                 "name": "Windows PowerShell"
             },
             {
-                "backgroundImage": "C:\\Users\\devck\\Pictures\\terminal-wallpaper\\windows 10.png",
+                "backgroundImage": "%USERPROFILE%\\Pictures\\Wallpapers\\terminal\\windows 10.png",
                 "colorScheme": "One Half Dark",
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
@@ -68,7 +68,7 @@
                 "name": "Command Prompt"
             },
             {
-                "backgroundImage": "C:\\Users\\devck\\Pictures\\terminal-wallpaper\\anime-girl-headphones-desktop-computer-screen-ail.jpg",
+                "backgroundImage": "%USERPROFILE%\\Pictures\\Wallpapers\\terminal\\anime-girl-headphones-desktop-computer-screen-ail.jpg",
                 "colorScheme": {
                     "light": "Catppuccin Mocha"
                 },
@@ -85,7 +85,7 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "commandline": "C:\\windows\\system32\\wsl.exe -d Debian",
+                "commandline": "%SystemRoot%\\system32\\wsl.exe -d Debian",
                 "guid": "{b1ba6fad-e662-4670-99e1-449aaa4e3afb}",
                 "hidden": false,
                 "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
