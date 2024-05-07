@@ -1,3 +1,4 @@
+# var
 $restoreConfScriptFile = 'restore_conf.ps1'
 $confWinget = '.\conf\winget\*'
 
