@@ -44,7 +44,7 @@ if ($hasOverride -eq 'Y' -or $hasOverride -eq 'y') {
 		Write-Error $_.Exception.Message
 	}
 } else {
-	Write-Host -ForegroundColor Red "Denied! Hash Override remains disabled!"
+	Write-Host -ForegroundColor Red "Denied! Hash Override remains {disabled}!" # TODO: use variable to show settings true value
 }
 
 Write-Host "
@@ -65,7 +65,7 @@ if ($updateChoco -eq 'Y' -or $updateChoco -eq 'y') {
 	+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+
 "
 	try {
-		gsudo	choco upgrade all -y
+		sudo	choco upgrade all -y
 		if ($?){
 			Write-Host -Foreground Green "Done! Double check for any errors."
 		}
@@ -86,7 +86,7 @@ if ($installChoco -eq 'Y' -or $installChoco -eq 'y') {
 	|I|n|s|t|a|l|l|i|n|g| |c|h|o|c|o|l|a|t|e|y| |a|p|p|s|
 	+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+ "
 	try {
-		gsudo choco install -y "winget" "traffic-monitor" "nerd-fonts-jetbrainsMono" "nerd-fonts-arimo" "nerd-fonts-meslo" "winfetch" "openal" "nilesoft-shell" "amd-ryzen-chipset" "imagemagick" "realtek-hd-audio-driver" "spicetify-marketplace" "tldr-plusplus"
+		sudo choco install -y "winget" "traffic-monitor" "nerd-fonts-jetbrainsMono" "nerd-fonts-arimo" "nerd-fonts-meslo" "winfetch" "openal" "nilesoft-shell" "amd-ryzen-chipset" "imagemagick" "realtek-hd-audio-driver" "spicetify-marketplace" "tldr-plusplus"
 		if ($?){
 			Write-Host -Foreground Green "Done! Double check for any errors."
 		}
@@ -98,12 +98,12 @@ if ($installChoco -eq 'Y' -or $installChoco -eq 'y') {
 }
 	
 # ===============================================================
-$clearChocoCache = Read-Host -Prompt "Clear cache? (Y/n)"
-if (-not $clearChocoCache) { $clearChocoCache = 'Y' }
+$clearChocoCache = Read-Host -Prompt "Clear cache? (y/N)"
+if (-not $clearChocoCache) { $clearChocoCache = 'N' }
 
 if ($clearChocoCache -eq 'Y' -or $clearChocoCache -eq 'y') {
 	try {
-		gsudo choco cache remove -y
+		sudo choco cache remove -y
 		if ($?){
 			Write-Host -Foreground Green "Chocolatey cache cleared!"
 		}
@@ -111,7 +111,7 @@ if ($clearChocoCache -eq 'Y' -or $clearChocoCache -eq 'y') {
 		Write-Error $_.Exception.Message
 	}
 } else {
-	Write-Host -Foreground Yellow "Denied! Cache not cleared."
+	Write-Host -Foreground Yellow "Cache not cleared."
 }
 
 Write-Host "
@@ -179,7 +179,8 @@ if ($installWingetApps -eq 'Y' -or $installWingetApps -eq 'y') {
 	|I|n|s|t|a|l|l|i|n|g| |w|i|n|g|e|t| |a|p|p|s|
 	+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+ +-+-+-+-+ "
 	try {
-		winget install "nvcleanstall" "powertoys" "AltSnap" "caprine" "discord" "telegram" "megasync" "fdm" "canva" "ahk" "k-lite mega codec pack" "obs studio" "VLC media player" "winrar" "anydesk" "gpu-z" "f.lux" "afterburner" "superf4" "wingetUI" "oracle.JDK.18" "7-zip" "Microsoft XNA Framework Redistributable Refresh" "CPUID CPU-Z" "sharex" "ookla.speedtest.CLI" "spotify.spotify" "spicetify.spicetify" "Appest.TickTick" "NextDNS.NextDNS.Desktop" "capcut" "qbittorrent.qbittorrent" "th-ch.YouTubeMusic" "IObit.IObitUnlocker" "Microsoft.DotNet.DesktopRuntime.3_1" "Microsoft.DotNet.DesktopRuntime.5" "Microsoft.DotNet.DesktopRuntime.6" "Microsoft.DotNet.DesktopRuntime.7" "Microsoft.DotNet.DesktopRuntime.8" "abbodi1406.vcredist" "univrsal.tuna" -s winget --accept-package-agreements --accept-source-agreements -h
+		winget install "nvcleanstall" "powertoys" "AltSnap" "caprine" "discord" "telegram" "megasync" "fdm" "canva" "k-lite mega codec pack" "obs studio" "VLC media player" "winrar" "anydesk" "gpu-z" "f.lux" "afterburner" "superf4" "wingetUI" "oracle.JDK.18" "7-zip" "Microsoft XNA Framework Redistributable Refresh" "CPUID CPU-Z" "sharex" "ookla.speedtest.CLI" "spotify.spotify" "spicetify.spicetify" "Appest.TickTick" "NextDNS.NextDNS.Desktop" "capcut" "qbittorrent.qbittorrent" "th-ch.YouTubeMusic" "IObit.IObitUnlocker" "Microsoft.DotNet.DesktopRuntime.3_1" "Microsoft.DotNet.DesktopRuntime.5" "Microsoft.DotNet.DesktopRuntime.6" "Microsoft.DotNet.DesktopRuntime.7" "Microsoft.DotNet.DesktopRuntime.8" "abbodi1406.vcredist" "univrsal.tuna" -s winget --accept-package-agreements --accept-source-agreements -h
+		sudo winget install "AutoHotkey.AutoHotkey" --scope machine -s winget --accept-package-agreements --accept-source-agreements -h
 		if ($?){
 			Write-Host -ForegroundColor Green "winget apps installed! Check for any errors."
 		}
