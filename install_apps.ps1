@@ -10,6 +10,7 @@ Write-Host "
 Write-Information "Setting wininet as network downloader..."
 
 if (Test-Path $confWinget) {
+	# TODO: add check if setting is already enabled
 	try { 
 		Copy-Item -Recurse -Force -Path $confWinget ~\Appdata\Local\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\LocalState\
 		if ($?) {
@@ -20,6 +21,8 @@ if (Test-Path $confWinget) {
 	}
 } else {
 	Write-Error "Directory $confWinget does not exist."
+	# TODO: create dir
+	# TODO: restore settings
 }
 
 # ===============================================================
@@ -32,6 +35,7 @@ if (-not $hasOverride) { $hasOverride = 'Y' }
 
 if ($hasOverride -eq 'Y' -or $hasOverride -eq 'y') {
 	try {
+		# TODO: add check if setting is already enabled
 		gsudo winget settings --enable InstallerHashOverride
 		if ($?) {
 			Write-Host -ForegroundColor Green "Hash Override enabled!"
@@ -47,6 +51,7 @@ Write-Host "
 	█▀▀ █░█ █▀█ █▀▀ █▀█ █░░ ▄▀█ ▀█▀ █▀▀ █▄█ package
 	█▄▄ █▀█ █▄█ █▄▄ █▄█ █▄▄ █▀█ ░█░ ██▄ ░█░ manager "
 
+# TODO: add check if chocolatey is already installed
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 # ===============================================================
