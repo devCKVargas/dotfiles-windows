@@ -22,10 +22,13 @@
 
 ## To do
 
-- use `gsudo` to isolate elivatation on certain script blocks
-- add env PATH (spotify, etc..)
+- use `gsudo` to isolate elivatation on certain script blocks ()
+- ~~add env PATH (spotify, etc..)~~
 - get ideas from [ChrisTitusTech&#39;s powershell-profile](https://github.com/ChrisTitusTech/powershell-profile/)
 - (experimental) use winget installed package list and automate from there (including the [App list](#app-list) below).
+- add useful powershell modules (PSFzf, WinGetCommandNotFound, etc...)
+- ~~add terminal icons~~
+- fix spicetify current_theme error
 
 ## Clone the repo
 
