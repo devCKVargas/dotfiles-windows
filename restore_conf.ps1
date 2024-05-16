@@ -1,30 +1,66 @@
 # $env:USERNAME, $env:ProgramFiles, $env:APPDATA, etc...
 
-# Variables (current session only)
-$confDir = Get-ChildItem -Path . -Filter 'conf' -Recurse -ErrorAction Stop
-$confAppData = Get-ChildItem -Path . -Filter 'AppData' -Recurse -ErrorAction Stop
-$confLocalAppData = Get-ChildItem -Path . -Filter 'LocalAppData' -Recurse -ErrorAction Stop
-$confDocuments = Get-ChildItem -Path . -Filter 'Documents' -Recurse -ErrorAction Stop
-$confStartup = Get-ChildItem -Path . -Filter 'Startup' -Recurse -ErrorAction Stop
-$confTerminal = $confDir.FullName + '\terminal\settings.json'
-$terminalWallpaper = $confDir.FullName + '\terminal\terminal-wallpaper\*'
-$confOhMyPosh = $confDir.FullName + '\oh-my-posh\themes\*'
-$confTaskSched = $confDir.FullName + '\task-scheduler\*'
-$confSpicetify = $confDir.FullName + '\spicetify\*'
-$confAltSnap = $confAppData.FullName + '\AltSnap\*'
-$confqBittorent = $confAppData.FullName + '\qBittorent\*'
-$confTrafficMonitor = $confLocalAppData.FullName + '\TrafficMonitor\*'
-$confPowerShell = $confDocuments.FullName + '\PowerShell\*'
-$confAHK = $confStartup.FullName + '\AHK\*'
+#? Variables (current session only)
+# $repoDir = Get-ChildItem -Path . -Filter 'dotfiles-windows' -Recurse -ErrorAction Stop
+$repoDir = Get-Item -Path .\ | Select-Object -ExpandProperty Name
+$confDir = $repoDir + '\conf\'
+$confAppData = $confDir + '\AppData\'
+$confLocalAppData = $confDir + '\LocalAppData\'
+$confDocuments = $confDir + '\Documents\'
+$confStartup = $confDir + '\Startup\'
+$confTerminal = $confDir + '\terminal\settings.json'
+$terminalWallpaper = $confDir + '\terminal\terminal-wallpaper\*'
+$confOhMyPosh = $confDir + '\oh-my-posh\themes\*'
+$confTaskSched = $confDir + '\task-scheduler\*'
+$confSpicetify = $confDir + '\spicetify\*'
+$confAltSnap = $confAppData + '\AltSnap\*'
+$confqBittorent = $confAppData + '\qBittorent\*'
+$confTrafficMonitor = $confLocalAppData + '\TrafficMonitor\*'
+$confPowerShell = $confDocuments + '\PowerShell\*'
+$confAHK = $confStartup + '\AHK\*'
 
-# ENV Path
-# $obsPath = "$env:ProgramFiles\obs-studio\bin\64bit"
-# $newPath = "$env:Path;$spotifyPath;$obsPath" # combine paths
+#? ENV Path
+# New paths to be added
 $spotifyPath = "$env:APPDATA\Spotify\"
-$newPath = "$env:Path;$spotifyPath"
-[Environment]::SetEnvironmentVariable("Path", $newPath, "User") # add Path to User ENV
+$wingetUIPath = "$env:ProgramFiles\WingetUI\"
 
-# function
+# Get the current user PATH environment variable
+$currentPath = [Environment]::GetEnvironmentVariable("Path", "User")
+
+# Split the current PATH into an array of paths
+$currentPathsArray = $currentPath -split ';'
+
+# Initialize a list to hold unique paths
+$newPathsList = [System.Collections.Generic.List[string]]::new()
+
+# Add existing paths and clear blank paths in the list
+foreach ($path in $currentPathsArray) {
+    if (-not [string]::IsNullOrEmpty($path)) {
+        $newPathsList.Add($path)
+    }
+}
+
+function Add-PathIfNotExists {
+    param (
+        [string]$path,
+        [System.Collections.Generic.List[string]]$pathList
+    )
+    if (-not $pathList.Contains($path)) {
+        $pathList.Add($path)
+    }
+}
+
+# Add the new paths if they don't already exist
+Add-PathIfNotExists -path $spotifyPath -pathList $newPathsList
+Add-PathIfNotExists -path $wingetUIPath -pathList $newPathsList
+
+# Combine the list with semicolons
+$newPath = [string]::Join(';', $newPathsList)
+
+# Set the new PATH environment variable
+[Environment]::SetEnvironmentVariable("Path", $newPath, "User")
+
+#? function
 function msgSuccess {
     Write-Host -ForegroundColor Green "✅ Settings restored!"
 }
@@ -34,6 +70,26 @@ function msgError {
 }
 function msgDirExist {
     Write-Warning "Directory already exists. Skipping creation."
+}
+
+#? spicetify
+try {
+    mkdir "$env:APPDATA\spicetify\Themes\test"
+    if ($?){
+        try {
+            spicetify config inject_css 1
+            spicetify config replace_colors 1
+            spicetify config current_theme marketplace
+            # TODO: add a check if current_apps already has either a marketplace || spicetify-marketplace
+            spicetify config custom_apps marketplace
+            msgSuccess
+        }
+        catch {
+            msgError
+        }
+    }
+} catch {
+    msgError
 }
 
 # TODO: copy powershell

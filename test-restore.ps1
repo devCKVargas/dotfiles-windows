@@ -1,34 +1,40 @@
-Write-Host "
-█▀█ █▀█ █░█░█ █▀▀ █▀█ █▀ █░█ █▀▀ █░░ █░░
-█▀▀ █▄█ ▀▄▀▄▀ ██▄ █▀▄ ▄█ █▀█ ██▄ █▄▄ █▄▄ "
+#? ENV Path
+# New paths to be added
+$spotifyPath = "$env:APPDATA\Spotify\"
+$wingetUIPath = "$env:ProgramFiles\WingetUI\"
 
-function restore-PowerShellProfile {
-    $confDocuments = Get-ChildItem -Path . -Filter 'Documents' -Recurse -ErrorAction Stop
-    $confPowerShell = $confDocuments.FullName + '\PowerShell\*'
-    Write-Information "Restoring profile..."
-    try {
-        Copy-Item -Recurse -Force -Path $confPowerShell ~\Documents\PowerShell\
-        if ($?) {
-            Write-Host -ForegroundColor Green "✅ PowerShell profile: restored!"
-        }
-    } catch {
-        Write-Error $_.Exception.Message
+# Get the current user PATH environment variable
+$currentPath = [Environment]::GetEnvironmentVariable("Path", "User")
+
+# Split the current PATH into an array of paths
+$currentPathsArray = $currentPath -split ';'
+
+# Initialize a list to hold unique paths
+$newPathsList = [System.Collections.Generic.List[string]]::new()
+
+# Add existing paths and clear blank paths in the list
+foreach ($path in $currentPathsArray) {
+    if (-not [string]::IsNullOrEmpty($path)) {
+        $newPathsList.Add($path)
     }
 }
 
-if (-not (Test-Path ~\Documents\PowerShell\)) {
-    Write-Warning " ⚠️ PowerShell directory not found.."
-    Write-Information " Creating directory..."
-    try {
-        mkdir ~\Documents\PowerShell\
-        if ($?){
-            Write-Host -ForegroundColor Green " ✅ PowerShell user profile dir: created!"
-            restore-PowerShellProfile
-        }
-    } catch {
-        Write-Error $_.Exception.Message
+function Add-PathIfNotExists {
+    param (
+        [string]$path,
+        [System.Collections.Generic.List[string]]$pathList
+    )
+    if (-not $pathList.Contains($path)) {
+        $pathList.Add($path)
     }
-} else {
-    Write-Warning " ⚠️ Directory already exists. Skipping creation."
-    restore-PowerShellProfile
 }
+
+# Add the new paths if they don't already exist
+Add-PathIfNotExists -path $spotifyPath -pathList $newPathsList
+Add-PathIfNotExists -path $wingetUIPath -pathList $newPathsList
+
+# Combine the list with semicolons
+$newPath = [string]::Join(';', $newPathsList)
+
+# Set the new PATH environment variable
+[Environment]::SetEnvironmentVariable("Path", $newPath, "User")
