@@ -1,4 +1,4 @@
-# Simple Windows Scripts
+# My windows dotfiles (currently using PowerShell & batch script)
 
 <div align=center>
 <table>
@@ -7,11 +7,11 @@
   </tr>
   <tr><td>
 
+  [<kbd> <br> Changelog <br><br> </kbd>](CHANGELOG.md)</td><td>
   [<kbd> <br> Apps install script <br><br> </kbd>](#app-install-script)</td><td>
   [<kbd> <br> Requirements <br><br> </kbd>](#requirements)</td><td>
-  [<kbd> <br> App list <br><br> </kbd>](#app-list)</td><td>
-  [<kbd> <br> Hotkey script <br><br> </kbd>](#hotkey-script)</td><td>
-  [<kbd> <br> Needs <br><br> </kbd>](#needs)</td><td>
+  [<kbd> <br> App list (outdated) <br><br> </kbd>](#app-list-outdated)</td><td>
+  [<kbd> <br> Hotkey script (outdated) <br><br> </kbd>](#hotkey-script-outdated)</td><td>
   [<kbd> <br> Hotkey list <br><br> </kbd>](#hotkey-list)</td>
 
   </td></tr>
@@ -20,15 +20,25 @@
 
 ***This repo is currently being refactored***
 
-## To do
+## See [Changelog](CHANGELOG.md)
 
-- use `gsudo` to isolate elivatation on certain script blocks ()
-- ~~add env PATH (spotify, etc..)~~
-- get ideas from [ChrisTitusTech&#39;s powershell-profile](https://github.com/ChrisTitusTech/powershell-profile/)
-- (experimental) use winget installed package list and automate from there (including the [App list](#app-list) below).
-- add useful powershell modules (PSFzf, WinGetCommandNotFound, etc...)
-- ~~add terminal icons~~
-- fix spicetify current_theme error
+***
+
+## To do list
+
+- [ ] use `gsudo` to isolate elivatation on certain script blocks ()
+- [x] add env PATH (spotify, etc..)
+- [x] get ideas from [ChrisTitusTech&#39;s powershell-profile](https://github.com/ChrisTitusTech/powershell-profile/)
+- [x] (experimental) use winget installed package list and automate from there (including the [App list (outdated)](#app-list-outdated) below).
+- [x] add useful powershell modules (PSFzf, WinGetCommandNotFound, etc...)
+- [x] add terminal icons
+- [ ] fix spicetify current_theme error
+- [ ] replace AHK script with python
+- [ ] add GlazeWM
+- [ ] refactor README layout
+- [ ] install & run the script will powershell 7
+
+***
 
 ## Clone the repo
 
@@ -44,24 +54,23 @@ using `github cli`
 gh repo clone devckvargas/dotfiles-windows
 ```
 
-## App install script
+***
 
-> [!TIP]
-> Install script alone is enough. It will prompt the user to [restore configs](#restore-conf) at the end.
+## App install script
 
 Usage:
 
 ```shell
-.\scripts\install_apps.ps1
+.\install_apps.ps1
 ```
 
 ### Requirements
 
 - **Internet connection**
-- **Powershell**
+- **PowerShell**
 - **Admin rights**
 
-### App list
+### App list (outdated)
 
 <table>
 <!--? Choco Apps -->
@@ -146,17 +155,24 @@ Usage:
 </table>
 <br><br>
 
-### Restore conf
+***
 
-Usage
+### Restore settings script
+>
+> [!NOTE]
+> The user will be prompted at the end of the install script
+
+Or manually run it using
 
 ```shell
-.\scripts\install_script.ps1
+.\install_script.ps1
 ```
 
-## Hotkey script
+***
 
-### Needs
+## Hotkey script (outdated)
+
+Requirements
 
 - **AutoHotKey(AHK)**
 - **Admin rights**
