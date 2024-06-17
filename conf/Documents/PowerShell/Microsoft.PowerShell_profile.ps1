@@ -215,3 +215,20 @@ if (Test-CommandExists gsudo) {
 else {
     PkgMissingSuggestion "gsudo" "gerardog.gsudo"
 }
+
+if (Test-CommandExists zoxide) {
+    Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })
+}
+else {
+    Write-Host "zoxide command not found. Attempting to install via winget..."
+    try {
+        winget install --id ajeetdsouza.zoxide
+        if ($?) {
+            Write-Host "zoxide installed successfully. Initializing..."
+            Invoke-Expression (& { (zoxide init powershell | Out-String) })
+        }
+    }
+    catch {
+        Write-Error "Failed to install zoxide. Error: $_"
+    }
+}
