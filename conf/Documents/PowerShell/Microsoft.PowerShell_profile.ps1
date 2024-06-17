@@ -138,3 +138,17 @@ function clearAllHistoryWindowsPS {
         return $null
     }
 }
+
+function hist {
+    # hist (command)
+    $find = $args
+    Write-Host "Full history:"
+    $historyPath = (Get-PSReadlineOption).HistorySavePath
+    $history = Get-Content $historyPath | Where-Object { $_ -like "*$find*" } | Get-Unique # | more
+    
+    $index = 1
+    foreach ($line in $history) {
+        Write-Host "${index}: $line"
+        $index++
+    }
+}
