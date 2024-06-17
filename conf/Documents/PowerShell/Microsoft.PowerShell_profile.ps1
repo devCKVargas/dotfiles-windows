@@ -46,6 +46,7 @@ Set-Alias -Name vim -Value $EDITOR
 $features = @{
     # Command Not Found requirements (*)
     modules      =
+    "Terminal-Icons",
     "Microsoft.WinGet.Client", # *
     "PSReadLine", 
     "PowerShellGet"
@@ -56,6 +57,8 @@ $features = @{
     powertoys    =
     "Microsoft.Winget.CommandNotFound" # * PowerToys Command Not Found (pkg suggestion)
 }
+Import-Module $features.powertoys
+$terminalIcons = $features.modules[0]
 
 # Add PSGallery to Trusted PS Repository
 if (-not (Get-PSRepository -Name PSGallery)) {
@@ -74,6 +77,10 @@ foreach ($module in $features.modules) {
     if (-not (Get-InstalledModule -Name $module)) {
         Write-Host "Installing module: $($module)..."
         Install-Module -Name $module -AcceptLicense -SkipPublisherCheck
+        # Import Terminal Icons module
+        if ($module -eq $terminalIcons) {
+            Import-Module -Name $module
+        }
     }
 }
 
