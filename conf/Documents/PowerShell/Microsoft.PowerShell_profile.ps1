@@ -157,6 +157,12 @@ function hist {
     }
 }
 
+if (Test-CommandExists oh-my-posh) {
+    oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/catppuccin_mocha.omp.json" | Invoke-Expression
+}
+else {
+    PkgMissingSuggestion "oh-my-posh" "gerardog.gsudo"
+}
 function installCatppuccinBat {
     $batConfigDir = & bat --config-dir
     $batConfigFile = & bat --config-file
