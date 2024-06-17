@@ -217,6 +217,7 @@ else {
 }
 
 if (Test-CommandExists zoxide) {
+    $env:_ZO_ECHO = '1' #print the matched directory before navigating to it
     Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })
 }
 else {
