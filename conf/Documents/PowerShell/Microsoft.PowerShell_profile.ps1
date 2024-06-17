@@ -204,3 +204,14 @@ if (Test-CommandExists bat) {
 else {
     PkgMissingSuggestion "bat" "sharkdp.bat"
 }
+
+if (Test-CommandExists gsudo) {
+    Import-Module "gsudoModule"
+    Set-Alias -Name "sudo" -Value "gsudo"
+    if (-not (gsudo config CacheMode | Select-String "Auto")) {
+        gsudo config CacheMode Auto # https://gerardog.github.io/gsudo/docs/credentials-cache#cache-modes
+    }
+}
+else {
+    PkgMissingSuggestion "gsudo" "gerardog.gsudo"
+}
