@@ -80,12 +80,9 @@ function gs { git status }
 function ga { git add . }
 function glog { git log --oneline --decorate --graph --format=format:'%C(bold yellow)%h%C(reset) %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' }
 # powershell profile
-function reload-profile { & $profile }
-function edit-profile { vim $PROFILE }
-function mkcd { 
-    param($dir)
-    mkdir $dir -Force;
-    Set-Location $dir }
+function update-profile { & $profile }
+function edit-profile { nvim $profile }
+function mkcd($dir) { mkdir $dir -Force; Set-Location $dir }
 
 # System Utils
 function export($name, $value) {
