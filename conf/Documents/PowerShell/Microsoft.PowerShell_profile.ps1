@@ -43,8 +43,47 @@ $EDITOR = if (Test-CommandExists nvim) { 'nvim' }
             else { 'notepad' }
 Set-Alias -Name vim -Value $EDITOR
 
-# ▄▀█ █░░ █ ▄▀█ █▀
-# █▀█ █▄▄ █ █▀█ ▄█
+$features = @{
+    # Command Not Found requirements (*)
+    modules      =
+    "Microsoft.WinGet.Client", # *
+    "PSReadLine", 
+    "PowerShellGet"
+    # Requirement
+    experimental =
+    "PSFeedbackProvider", # *
+    "PSCommandNotFoundSuggestion" # *
+    powertoys    =
+    "Microsoft.Winget.CommandNotFound" # * PowerToys Command Not Found (pkg suggestion)
+}
+
+# Add PSGallery to Trusted PS Repository
+if (-not (Get-PSRepository -Name PSGallery)) {
+    try {
+        Register-PSRepository -Name PSGallery -SourceLocation https://www.powershellgallery.com/api/v2/ -InstallationPolicy Trusted
+    }
+    catch {
+        if (-not (Get-PSRepository -Name PSGallery)) {
+            Register-PSRepository -Default -InstallationPolicy Trusted
+        }
+    }
+}
+
+# Install-Modules
+foreach ($module in $features.modules) {
+    if (-not (Get-InstalledModule -Name $module)) {
+        Write-Host "Installing module: $($module)..."
+        Install-Module -Name $module -AcceptLicense -SkipPublisherCheck
+    }
+}
+
+# Enable Experimental Features
+foreach ($feature in $features.experimental) {
+    if (-not [ExperimentalFeature]::IsEnabled("$feature")) {
+        Enable-ExperimentalFeature $feature
+    }
+}
+
 function z { zoxide }
 function lazy { lazygit }
 function lg { lazygit }
