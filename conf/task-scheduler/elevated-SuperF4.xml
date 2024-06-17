@@ -2,7 +2,7 @@
 <Task version="1.4" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
   <RegistrationInfo>
     <Author>devCKVargas</Author>
-    <URI>\elevated_SuperF4</URI>
+    <URI>\elevated-SuperF4</URI>
   </RegistrationInfo>
   <Triggers>
     <LogonTrigger>
@@ -42,7 +42,7 @@
   </Settings>
   <Actions Context="Author">
     <Exec>
-      <Command>C:\your\full\path\to\Program.exe</Command>
+      <Command>%AppData%\SuperF4\SuperF4.exe</Command>
     </Exec>
   </Actions>
 </Task>
