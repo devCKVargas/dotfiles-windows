@@ -163,6 +163,35 @@ if (Test-CommandExists oh-my-posh) {
 else {
     PkgMissingSuggestion "oh-my-posh" "gerardog.gsudo"
 }
+
+# Ctrl + T; access current path
+# Ctrl + R; access previous history, insert the command into the current line, but will not execute
+# ALT + C; cd into directory
+# Ref: https://github.com/kelleyma49/PSFzf?tab=readme-ov-file#psreadline-integration
+if (Test-CommandExists fzf) {
+    #     $ENV:FZF_DEFAULT_OPTS=@"
+    # --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796
+    # --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6
+    # --color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796
+    # "@
+    
+    # $env:FZF_DEFAULT_OPTS='--preview "bat --color=always --style=numbers --line-range=:500 {}' # TODO: fix when bat is missing
+    # TODO: fix bat preview with fzf || PsFzf CTRL T
+    if (Test-CommandExists Set-PsFzfOption) {
+        # replace 'Ctrl+t' and 'Ctrl+r' with your preferred bindings:
+        Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+        # Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion } # replace the standard tab completion
+    }
+    else {
+        try {
+            Install-Module -Name PSFzf
+        }
+        catch {
+            Write-Error "PsFzf error: $_"
+        }
+    }
+}
+
 function installCatppuccinBat {
     $batConfigDir = & bat --config-dir
     $batConfigFile = & bat --config-file
