@@ -67,7 +67,11 @@ foreach ($feature in $features.experimental) {
 }
 
 function z { zoxide }
-function lazy { lazygit }
+function lazyg($option, $messsage) { 
+    git init
+    git add $option
+    git commit -m "$messsage"
+}
 function lg { lazygit }
 
 # Enhanced Listing
@@ -75,9 +79,11 @@ function la { Get-ChildItem -Path . -Force | Format-Table -AutoSize }
 function ll { Get-ChildItem -Path . -Force -Hidden | Format-Table -AutoSize }
 
 # git
-function g { git }
-function gs { git status }
+# function g($options) { git $options } # TEST
+function gs($options) { git status $options }
 function ga { git add . }
+function gc($m) { git commit -m "$m" }
+function gshow($commit) { git show $commit | bat -l rs } # TODO: fix when bat is missing
 function glog { git log --oneline --decorate --graph --format=format:'%C(bold yellow)%h%C(reset) %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' }
 # powershell profile
 function update-profile { & $profile }
