@@ -78,11 +78,7 @@ function ll { Get-ChildItem -Path . -Force -Hidden | Format-Table -AutoSize }
 function g { git }
 function gs { git status }
 function ga { git add . }
-function gc {
-    param($m) git commit -m "$m"
-}
-function glogs { git log --oneline --decorate --graph --format=format:'%C(bold yellow)%h%C(reset) %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' }
-
+function glog { git log --oneline --decorate --graph --format=format:'%C(bold yellow)%h%C(reset) %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' }
 # powershell profile
 function reload-profile { & $profile }
 function edit-profile { vim $PROFILE }
