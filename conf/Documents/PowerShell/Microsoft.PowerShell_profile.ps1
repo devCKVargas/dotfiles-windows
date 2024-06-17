@@ -98,3 +98,43 @@ function df { get-volume }
 function which($name) {
     Get-Command $name | Select-Object -ExpandProperty Definition
 }
+# History
+function clearAllHistory {
+    if (Test-Path (Get-PSReadLineOption).HistorySavePath) {
+        $answer = Read-Host -Prompt "This will clear every history from all sessions. Are you sure? (Y/n)"
+        if (-not $answer) { $answer = 'Y' }
+        if ($answer -eq "Y" -or $answer -eq "y") {
+            try {
+                Remove-Item -Force ((Get-PSReadLineOption).HistorySavePath)
+                Write-Host "History cleared!" -ForegroundColor Green 
+                Write-Host "It will take effect on the next PowerShell restart" -ForegroundColor Yellow
+            }
+            catch {
+                Write-Error "Could not clear history. $_"
+            }
+        }
+        else {
+            return $null
+        }
+    }
+    else {
+        Write-Host "No history found." -ForegroundColor Red
+    }
+}
+function clearAllHistoryWindowsPS {
+    $answer = Read-Host -Prompt "This will clear every history from all sessions (Windows PowerShell). Are you sure? (Y/n)"
+    if (-not $answer) { $answer = 'Y' }
+    if ($answer -eq "Y" -or $answer -eq "y") {
+        try {
+            [Microsoft.PowerShell.PSConsoleReadLine]::ClearHistory()
+            Write-Host "History cleared!" -ForegroundColor Green 
+            Write-Host "You might have to restart PowerShell for this to take effect." -ForegroundColor Yellow
+        }
+        catch {
+            Write-Error "Could not clear history. $_"
+        }
+    }
+    else {
+        return $null
+    }
+}
