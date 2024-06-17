@@ -5,6 +5,10 @@ function Test-CommandExists($command) {
     $exists = $null -ne (Get-Command $command -ErrorAction SilentlyContinue)
     return $exists
 }
+function PkgMissingSuggestion($pkg, $pkgID) {
+    Write-Host "$pkg is not installed" -ForegroundColor Yellow
+    Write-Host " ➤ winget install --id $pkgID" -ForegroundColor Green
+}
 
 # Editor Configuration
 $EDITOR = if (Test-CommandExists nvim) { 'nvim' }
@@ -151,4 +155,52 @@ function hist {
         Write-Host "${index}: $line"
         $index++
     }
+}
+
+function installCatppuccinBat {
+    $batConfigDir = & bat --config-dir
+    $batConfigFile = & bat --config-file
+    $themeUrl = "https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme"
+    $themeName = "Catppuccin Mocha"
+    $themeFilePath = "$batConfigDir/themes/$themeName.tmTheme"
+    
+    if (-not (Test-Path $batConfigDir)) {
+        mkdir $batConfigDir -Force
+    }
+    
+    if (-not (Test-Path $themeFilePath) -or (-not (Get-Content $batConfigFile | Select-String $themeName))) {
+        try {
+            if (-not (Test-CommandExists "wget")) {
+                try {
+                    winget install JernejSimoncic.Wget -Force
+                }
+                catch {
+                    Write-Error $_
+                }
+            }
+            wget -P "$batConfigDir/themes" $themeUrl
+            if ($?) {
+                bat cache --build
+                $env:BAT_THEME = $themeName
+                if (-not (Test-Path $batConfigFile)) {
+                    Write-Host --theme='"'$themeName'"' >> $batConfigFile
+                }
+                else {
+                    if (-not (Get-Content $batConfigFile | Select-String $themeName)) {
+                        Write-Host --theme='"'$themeName'"' >> $batConfigFile
+                    }
+                }
+            }
+        }
+        catch {
+            Write-Error $_
+        }
+    }
+}
+
+if (Test-CommandExists bat) {
+    installCatppuccinBat
+}
+else {
+    PkgMissingSuggestion "bat" "sharkdp.bat"
 }
