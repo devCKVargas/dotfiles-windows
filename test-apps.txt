@@ -1,0 +1,11 @@
+# Current sources: winget, chocolatey
+# Chocolatey apps starts right after # chocoApps
+# devApps
+	Figma.Figma
+	discord
+# apps
+	telegram
+# chocoApps
+	nerd-fonts-jetbrainsMono
+# UWP
+eartrumpet

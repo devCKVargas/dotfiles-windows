@@ -1,0 +1,153 @@
+#
+# Current sources: winget (everything else), chocolatey(# chocolatey), ms store (# UWP)
+# (!) to exclude an app, or use whatever except letters and (#)
+# indentation doesn't matter
+#
+# non-apps
+	Microsoft.VCLibs.Desktop.14
+	abbodi1406.vcredist
+	Microsoft.VCRedist.2005.x86
+	Microsoft.VCRedist.2008.x64
+	Microsoft.VCRedist.2008.x86
+	Microsoft.VCRedist.2010.x64
+	Microsoft.VCRedist.2010.x86
+	Microsoft.VCRedist.2012.x64
+	Microsoft.VCRedist.2012.x86
+	Microsoft.VCRedist.2013.x64
+	Microsoft.VCRedist.2013.x86
+	Microsoft.VCRedist.2015.x64
+	Microsoft.VCRedist.2015.x86
+	Microsoft.VCRedist.2015+.x64
+	Microsoft.VCRedist.2015+.x86
+	Microsoft XNA Framework Redistributable Refresh
+	Microsoft.DotNet.DesktopRuntime.3_1
+	Microsoft.DotNet.DesktopRuntime.5
+	Microsoft.DotNet.DesktopRuntime.6
+	Microsoft.DotNet.DesktopRuntime.7
+	Microsoft.DotNet.DesktopRuntime.8
+	Microsoft.DotNet.Runtime.8
+	Microsoft.DotNet.SDK.8
+	Microsoft.OpenSSH.Beta
+# dev Apps
+	Microsoft.VisualStudioCode
+	Figma
+	AdrienAllard.FileConverter
+	! ResponsivelyApp.ResponsivelyApp
+	! BurntSushi.ripgrep.MSVC
+	! GitHub.GitHubDesktop
+	!	Python.Python.3.12
+# cli
+	Git.Git
+	GitHub.cli
+	orhun.git-cliff
+	JesseDuffield.lazygit
+	Microsoft.WindowsTerminal
+	Microsoft.PowerShell
+	JanDeDobbeleer.OhMyPosh
+	ajeetdsouza.zoxide
+	junegunn.fzf
+	sharkdp.bat
+	gerardog.gsudo
+	RussellBanks.Komac
+	OpenJS.NodeJS.LTS
+	JernejSimoncic.Wget
+# android
+	oracle.JDK.18
+	Google.PlatformTools
+# game-related
+	! NexusMods.Vortex
+	! EpicGames
+	! Heroic
+	Valve.Steam
+# apps
+	! wingetUI
+	! Obsidian.Obsidian
+	! SoftDeluxe.FreeDownloadManager
+	! ookla.speedtest.CLI
+	! univrsal.tuna
+	! IObit.AdvancedSystemCare
+	! IObit.DriverBooster
+	! IObit.Uninstaller
+	! Betterbird
+	! GnuPG
+	! glzr-io.glazewm
+	! WixToolset.AdditionalTools
+	! RoyShilkrot.obs-backgroundremoval
+	! VB-Audio.Voicemeeter.Potato
+	AltSnap
+	superf4
+	caprine
+	discord.discord
+	TelegramDesktop
+	sharex
+	Microsoft.PowerToys
+	voidtools.Everything
+	lin-ycv.EverythingPowerToys
+	Microsoft.Sysinternals.Autoruns
+	Microsoft.Sysinternals.ZoomIt
+	Henry++.simplewall
+	NVCleanstall
+	MEGASync
+	k-lite mega codec pack
+	obs studio
+	VLC media player
+	7-zip
+	winrar
+	anydesk
+	gpu-z
+	f.lux
+	afterburner
+	CPUID CPU-Z
+	spotify.spotify
+	spicetify.spicetify
+	TickTick
+	qbittorrent.qbittorrent
+	th-ch.YouTubeMusic
+	IObit.IObitUnlocker
+	AutoHotkey.AutoHotkey
+	BinaryFortress.DisplayFusion
+	Tonec.InternetDownloadManager
+	Logitech.LGS
+	OO-Software.ShutUp10
+	Guru3D.RTSS
+	Rclone.Rclone
+	Rufus.Rufus
+	TheBrowserCompany.Arc
+	Ventoy.Ventoy
+	nepnep.neofetch-win
+	namazso.OpenHashTab
+	valinet.ExplorerPatcher
+	RevoUninstallerPro
+	Wagnardsoft.DisplayDriverUninstaller
+	JackieLiu.NotepadsApp
+	Nvidia.PhysX
+# multimedia editing apps
+	! Audacity.Audacity
+	! HandBrake.HandBrake
+	! canva
+	! capcut
+
+# chocolatey apps
+	! h2testw
+	! less
+	! files
+	traffic-monitor
+	nerd-fonts-jetbrainsMono
+	nerd-fonts-arimo
+	nerd-fonts-meslo
+	amd-ryzen-chipset
+	openal
+	realtek-hd-audio-driver
+	spicetify-marketplace
+	tldr-plusplus
+	chocolatey-compatibility.extension
+	chocolatey-dotnetfx.extension
+	chocolatey-font-helpers.extension
+	chocolatey-fosshub.extension
+# UWP (Microsoft Store)
+	! NVIDIA Control Panel
+	! Xbox Identity Provider
+	! RealtekSemiconductorCorp.RealtekAudioControl_1.50.319.0_x64__dt26b99r8h8gj
+	eartrumpet
+	VP9 Video Extensions
+	Permadelete
