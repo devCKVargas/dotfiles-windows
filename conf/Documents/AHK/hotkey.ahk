@@ -14,6 +14,7 @@ spotify := "spotify"
 currentYear := A_YYYY ; i.e. 2023
 currentMonth := A_MM	; i.e. 12
 screenshotFolder := "D:\--ShareX--\Screenshots\" . currentYear . "-" . currentMonth
+screenshotFolder := "D:\ShareX\Screenshots\" . currentYear . "-" . currentMonth
 
 ; ▄▀█ █▀█ █▀█ █▀	Note:
 ; █▀█ █▀▀ █▀▀ ▄█	# WindowKey, ^ Ctrl, ! Alt
