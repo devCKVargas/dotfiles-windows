@@ -25,6 +25,41 @@ screenshotFolder := "D:\--ShareX--\Screenshots\" . currentYear . "-" . currentMo
 #b::Run browser											; 	Super + B 								-	launch msedge
 #c::Run editor											; 	Super + C 								-	launch vscode
 #^!s:: Run spotify									; 	Ctrl + Super + Alt + S 		-	launch spotify
+;	launch spotify (Ctrl + Super + Alt + S)
+#^!s:: {
+    exeName := "Spotify.exe"
+    spotifyPath := EnvGet("APPDATA") "\Spotify\" exeName
+
+    if WinExist("ahk_exe " exeName) {
+        WinActivate("ahk_exe " exeName)
+        return
+    }
+
+    if FileExist(spotifyPath) {
+        spotifyDir := StrReplace(spotifyPath, "\" exeName)
+
+        ; Get only the user PATH from registry
+        try userPath := RegRead("HKCU\Environment", "Path")
+        catch {
+            userPath := ""
+        }
+
+        ; Avoid duplicate if already in PATH
+        if !InStr(userPath, spotifyDir) {
+            newPath := userPath (SubStr(userPath, -1) = ";" || userPath = "" ? "" : ";") spotifyDir
+            RegWrite newPath, "REG_SZ", "HKCU\Environment", "Path"
+
+            ; Broadcast PATH update to system
+            DllCall("SendMessageTimeout", "Ptr", 0xFFFF, "UInt", 0x1A, "Ptr", 0, "Str", "Environment", "UInt", 0x2, "UInt", 5000, "PtrP", 0)
+
+            MsgBox "Spotify folder added to your user PATH. Restart Explorer or terminal to apply.", "PATH Updated", 64
+        }
+
+        Run spotifyPath
+    } else {
+        MsgBox "Spotify.exe not found in %APPDATA%\Spotify", "Error", 48
+    }
+}
 
 ; █░█░█ █ █▄░█ █▀▄ █▀█ █░█░█
 ; ▀▄▀▄▀ █ █░▀█ █▄▀ █▄█ ▀▄▀▄▀	ToolTip "Window is Maximized"
