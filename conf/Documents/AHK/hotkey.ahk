@@ -1,31 +1,33 @@
 ﻿#Requires AutoHotkey v2.0
 
-^#r::{															; 	Reload Script Dialog ; Ctrl + Super + R
+;	Reload Script Dialog (Ctrl + Super + R)
+^#r::{
 	if MsgBox("Reload the script?",, "Y/N") = "Yes"
 		Reload
 }
 
 ; █░█ ▄▀█ █▀█
 ; ▀▄▀ █▀█ █▀▄
-terminal := "wt"			; windows terminal
+terminal := "wt"	;	windows terminal
 browser := "msedge"
 editor := "code"
 spotify := "spotify"
 currentYear := A_YYYY ; i.e. 2023
 currentMonth := A_MM	; i.e. 12
-screenshotFolder := "D:\--ShareX--\Screenshots\" . currentYear . "-" . currentMonth
 screenshotFolder := "D:\ShareX\Screenshots\" . currentYear . "-" . currentMonth
 
 ; ▄▀█ █▀█ █▀█ █▀	Note:
 ; █▀█ █▀▀ █▀▀ ▄█	# WindowKey, ^ Ctrl, ! Alt
-; WINDOWS TERMINAL
-#enter:: Run terminal								; 	Super + Enter 						-	launch terminal
-#NumpadEnter:: Run terminal					; 	Super + NumpadEnter 			-	launch terminal
+
+#enter:: Run terminal	;	launch terminal (Super + Enter)
+
+#NumpadEnter::	Run terminal	;	launch terminal (Super + NumpadEnter)
+
+; Run terminal (Elevated)
 ^#enter::Run '*RunAs "' terminal '"'
 ^#NumpadEnter::Run '*RunAs "' terminal '"'
-#b::Run browser											; 	Super + B 								-	launch msedge
-#c::Run editor											; 	Super + C 								-	launch vscode
-#^!s:: Run spotify									; 	Ctrl + Super + Alt + S 		-	launch spotify
+
+#b::Run browser	;	launch msedge (Super + B)
 
 #c::Run(editor, , "Hide")	;	launch vscode (Super + C)
 
@@ -110,28 +112,41 @@ screenshotFolder := "D:\ShareX\Screenshots\" . currentYear . "-" . currentMonth
     MsgBox "UniGetUI.exe not found in known locations.", "Error", 48
 }
 
+#z::Run "zen"	;	launch zen browser (Super + Z)
+
 ; █░█░█ █ █▄░█ █▀▄ █▀█ █░█░█
 ; ▀▄▀▄▀ █ █░▀█ █▄▀ █▄█ ▀▄▀▄▀	ToolTip "Window is Maximized"
-#q::Send "!{F4}"										; 	Super + Q									-	close active window
-^q::Send "!{F4}"										; 	Ctrl + Q									-	close active window(Disabled)
-#f::{ 															;		Super + F									-	toggle maximize active window
+
+;	close active window (Super + Q)
+#q::Send "!{F4}"
+
+;	close active window (Ctrl + Q) (Disabled)
+; ^q::Send "!{F4}"
+
+#f::{	;	toggle maximize active window (Super + F)
 	ActWinState:=WinGetMinMax("A")
 	if(ActWinState > 0){
 		WinRestore "A"
 	} else WinMaximize "A"
 }
-#PgUp::{ 														; 	Super + PgUp							-	toggle maximize active window
+
+;	toggle maximize active window (Super + PgUp)
+#PgUp::{
 	ActWinState:=WinGetMinMax("A")
 	if(ActWinState > 0){
 		WinRestore "A"
 	} else WinMaximize "A"
 }
-#PgDn::{														;		Super + PgDn  						-	toggle unmaximize active window
+
+;	toggle unmaximize active window (Super + PgDn)
+#PgDn::{
 	ActWinState:=WinGetMinMax("A")
 	if(ActWinState > 0){
 		WinRestore "A"
 	} else WinMinimize "A"
 }
-#+x:: Run screenshotFolder					; 	Super + Shift + X					-	open ShareX screenshot folder
+
+;	open ShareX screenshot folder (Super + Shift + X)
+#+x:: Run screenshotFolder
 
 ; TODO: ADD voicemeeter as volcontrol := "voicemeeter"
