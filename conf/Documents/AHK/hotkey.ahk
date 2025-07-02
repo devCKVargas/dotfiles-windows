@@ -26,6 +26,9 @@ screenshotFolder := "D:\ShareX\Screenshots\" . currentYear . "-" . currentMonth
 #b::Run browser											; 	Super + B 								-	launch msedge
 #c::Run editor											; 	Super + C 								-	launch vscode
 #^!s:: Run spotify									; 	Ctrl + Super + Alt + S 		-	launch spotify
+
+#c::Run(editor, , "Hide")	;	launch vscode (Super + C)
+
 ;	launch spotify (Ctrl + Super + Alt + S)
 #^!s:: {
     exeName := "Spotify.exe"
