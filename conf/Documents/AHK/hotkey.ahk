@@ -61,6 +61,51 @@ screenshotFolder := "D:\--ShareX--\Screenshots\" . currentYear . "-" . currentMo
     }
 }
 
+;	launch UnigetUI(WingetUI) (Super + W)
+#w:: {
+    exeName := "UniGetUI.exe"
+    localAppData := EnvGet("LOCALAPPDATA")
+    programFiles := EnvGet("ProgramFiles")
+
+    possiblePaths := [
+        localAppData "\Programs\UniGetUI\" exeName,
+        programFiles "\UniGetUI\" exeName
+    ]
+
+    if WinExist("ahk_exe " exeName) {
+        WinActivate("ahk_exe " exeName)
+        return
+    }
+
+    for exePath in possiblePaths {
+				; Avoid duplicate if already in PATH
+        if FileExist(exePath) {
+            exeDir := StrReplace(exePath, "\" exeName)
+
+            ; Read ONLY the user PATH
+            try userPath := RegRead("HKCU\Environment", "Path")
+            catch {
+                userPath := ""
+            }
+
+            if !InStr(userPath, exeDir) {
+                newPath := userPath (userPath = "" || SubStr(userPath, -1) = ";" ? "" : ";") exeDir
+                RegWrite newPath, "REG_SZ", "HKCU\Environment", "Path"
+
+                ; Broadcast updated env to the system
+                DllCall("SendMessageTimeout", "Ptr", 0xFFFF, "UInt", 0x1A, "Ptr", 0, "Str", "Environment", "UInt", 0x2, "UInt", 5000, "PtrP", 0)
+
+                MsgBox "UniGetUI folder added to your user PATH. Restart Explorer or terminal to apply.", "PATH Updated", 64
+            }
+
+            Run exePath
+            return
+        }
+    }
+
+    MsgBox "UniGetUI.exe not found in known locations.", "Error", 48
+}
+
 ; █░█░█ █ █▄░█ █▀▄ █▀█ █░█░█
 ; ▀▄▀▄▀ █ █░▀█ █▄▀ █▄█ ▀▄▀▄▀	ToolTip "Window is Maximized"
 #q::Send "!{F4}"										; 	Super + Q									-	close active window
