@@ -1,6 +1,6 @@
 ﻿#Requires AutoHotkey v2.0
 
-;	Reload Script Dialog (Ctrl + Super + R)
+; Reload Script Dialog (Ctrl + Super + R)
 ^#r::{
 	if MsgBox("Reload the script?",, "Y/N") = "Yes"
 		Reload
@@ -8,30 +8,30 @@
 
 ; █░█ ▄▀█ █▀█
 ; ▀▄▀ █▀█ █▀▄
-terminal := "wt"	;	windows terminal
+terminal := "wt" ; windows terminal
 browser := "msedge"
 editor := "code"
 spotify := "spotify"
 currentYear := A_YYYY ; i.e. 2023
-currentMonth := A_MM	; i.e. 12
+currentMonth := A_MM ; i.e. 12
 screenshotFolder := "D:\ShareX\Screenshots\" . currentYear . "-" . currentMonth
 
 ; ▄▀█ █▀█ █▀█ █▀	Note:
 ; █▀█ █▀▀ █▀▀ ▄█	# WindowKey, ^ Ctrl, ! Alt
 
-#enter:: Run terminal	;	launch terminal (Super + Enter)
+#enter::Run terminal ; launch terminal (Super + Enter)
 
-#NumpadEnter::	Run terminal	;	launch terminal (Super + NumpadEnter)
+#NumpadEnter::Run terminal ; launch terminal (Super + NumpadEnter)
 
 ; Run terminal (Elevated)
 ^#enter::Run '*RunAs "' terminal '"'
 ^#NumpadEnter::Run '*RunAs "' terminal '"'
 
-#b::Run browser	;	launch msedge (Super + B)
+#b::Run browser ; launch msedge (Super + B)
 
-#c::Run(editor, , "Hide")	;	launch vscode (Super + C)
+#c::Run(editor, , "Hide") ; launch vscode (Super + C)
 
-;	launch spotify (Ctrl + Super + Alt + S)
+; launch spotify (Ctrl + Super + Alt + S)
 #^!s:: {
     exeName := "Spotify.exe"
     spotifyPath := EnvGet("APPDATA") "\Spotify\" exeName
@@ -67,7 +67,7 @@ screenshotFolder := "D:\ShareX\Screenshots\" . currentYear . "-" . currentMonth
     }
 }
 
-;	launch UnigetUI(WingetUI) (Super + W)
+; launch UnigetUI(WingetUI) (Super + W)
 #w:: {
     exeName := "UniGetUI.exe"
     localAppData := EnvGet("LOCALAPPDATA")
@@ -115,36 +115,26 @@ screenshotFolder := "D:\ShareX\Screenshots\" . currentYear . "-" . currentMonth
 #z::Run "zen"	;	launch zen browser (Super + Z)
 
 ; █░█░█ █ █▄░█ █▀▄ █▀█ █░█░█
-; ▀▄▀▄▀ █ █░▀█ █▄▀ █▄█ ▀▄▀▄▀	ToolTip "Window is Maximized"
+; ▀▄▀▄▀ █ █░▀█ █▄▀ █▄█ ▀▄▀▄▀
 
-;	close active window (Super + Q)
+; close active window (Super + Q)
 #q::Send "!{F4}"
 
-;	close active window (Ctrl + Q) (Disabled)
+; close active window (Ctrl + Q) (Disabled)
 ; ^q::Send "!{F4}"
 
-#f::{	;	toggle maximize active window (Super + F)
-	ActWinState:=WinGetMinMax("A")
-	if(ActWinState > 0){
-		WinRestore "A"
-	} else WinMaximize "A"
+toggleWinState(mode := "maximize") {
+    if (WinGetMinMax("A") > 0)
+        WinRestore "A"
+    else if (mode = "maximize")
+        WinMaximize "A"
+    else if (mode = "minimize")
+        WinMinimize "A"
 }
 
-;	toggle maximize active window (Super + PgUp)
-#PgUp::{
-	ActWinState:=WinGetMinMax("A")
-	if(ActWinState > 0){
-		WinRestore "A"
-	} else WinMaximize "A"
-}
-
-;	toggle unmaximize active window (Super + PgDn)
-#PgDn::{
-	ActWinState:=WinGetMinMax("A")
-	if(ActWinState > 0){
-		WinRestore "A"
-	} else WinMinimize "A"
-}
+#f::toggleWinState("maximize")  ;	maximize active window (Super + F) (toggle)
+#PgUp::toggleWinState("maximize")   ;	maximize active window (Super + PgUp) (toggle)
+#PgDn::toggleWinState("minimize")   ;	minimize active window (Super + PgDn)
 
 ;	open ShareX screenshot folder (Super + Shift + X)
 #+x:: Run screenshotFolder
